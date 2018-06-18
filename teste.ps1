@@ -1,0 +1,1 @@
+Get-Content .\alocm.csv | Set-Content -Encoding utf8 alocmf.csv
