@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {box-sizing: border-box;}
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+/* * {box-sizing: border-box;}
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
 .topnav {
   overflow: hidden;
@@ -80,7 +84,7 @@ body {
   }
 }
 
-table {
+/* table {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
@@ -113,7 +117,7 @@ tr:nth-child(even) {
     content: "";
     display: table;
     clear: both;
-}
+} */
 </style>
 </head>
 <body>
@@ -124,99 +128,56 @@ tr:nth-child(even) {
   <a href="/alojamentos">Alojamentos</a>
 </div>
 
-<div class="row" style="margin:2rem;">
-<div class="search-container" style="margin-left:0.5rem;">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Pesquisar..." name="search">
-      <select placeholder="Escolha um filtro...">
-        <option disabled selected style="display:none;">Escolha um filtro...</option>
-        <option>GUZMAN</option>
-      </select>
-      <button type="submit">Pesquisar <i class="fa fa-search"></i></button>
-    </form>
-  </div>
-  <div class="column" >
-  <h4>Resultados</h4>
-  <div style="overflow-x:scroll; overflow-y:scroll; height:450px;">
-  <table> 
-  <tr>
-    <th>Nome</th>
-    <th>Morada</th>
-    <th>dfgdgregerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</th>
-TOOLTIP
-  </tr> 
-
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>amo-te mario </td> 
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-
-
-
-</table>
+<div class="container">
+  <h2>Resultados</h2> 
+  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@mail.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@greatstuff.com</td>
+      </tr>
+      <tr>
+        <td>Anja</td>
+        <td>Ravendale</td>
+        <td>a_r@test.com</td>
+      </tr>
+    </tbody>
+  </table>
+  
 </div>
-  </div>
-  <div class="column">
-    <h4>Lista de Exportação</h4>
-    <table>
-    <tr>
-    <th>Lista</th>
-    </tr>
-    <tr>
-    <td>blablabla</td>
-    </tr>
-    <tr>
-    <td>blablabla</td>
-    </tr>
-    </table>
-  </div>
-</div>
+
 
 </body>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
 </html>
