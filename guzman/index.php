@@ -21,6 +21,7 @@
       <select placeholder="Escolha um filtro...">
         <option disabled selected style="display:none;">Escolha um filtro...</option>
         <option>GUZMAN</option>
+        <option>GUZMAN2</option>
       </select>
       <button type="submit"  id="myInput" >Pesquisar <i class="fa fa-search"></i></button>
     </form>
