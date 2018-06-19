@@ -122,6 +122,7 @@ tr:nth-child(even) {
   <a class="active" href="#home">SiteDeBorla</a>
   <a href="/hoteis">Hoteis</a>
   <a href="/alojamentos">Alojamentos</a>
+  
 </div>
 
 <div class="row" style="margin:2rem;">
