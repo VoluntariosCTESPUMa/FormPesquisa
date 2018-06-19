@@ -77,6 +77,43 @@
     border: 1px solid #ccc;  
   }
 }
+<<<<<<< HEAD
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+{
+    box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+} 
+=======
 .container{
   width: 100%;
   height: 100%;
@@ -102,6 +139,7 @@
     font-size: 16pt;
 }
 
+>>>>>>> e75af12e245c246cf5b7fab046f625fabaf4d444
 </style>
 </head>
 <body>

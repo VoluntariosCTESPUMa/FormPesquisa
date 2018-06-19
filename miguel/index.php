@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../style.css">
+
 </head>
 <body>
 
@@ -19,7 +21,7 @@
       <input type="text" placeholder="Pesquisar..." name="search">
       <select placeholder="Escolha um filtro...">
         <option disabled selected style="display:none;">Escolha um filtro...</option>
-        <option>GUZMAN</option>
+        <option><?php ?></option>
       </select>
       <button type="submit">Pesquisar <i class="fa fa-search"></i></button>
     </form>
@@ -28,66 +30,8 @@
   <h4>Resultados</h4>
   <div style="overflow-x:scroll; overflow-y:scroll; height:450px;">
   <table> 
-  <tr>
-    <th>Nome</th>
-    <th>Morada</th>
-    <th>dfgdgregerrrrrrrrrrr rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</th>
-
-  </tr> 
-
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>amo-te mario </td> 
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-  <tr>
-    <td>exemplo1</td>
-    <td>exemplo2</td>
-    <td>exemplo3</td>
-  </tr>
-
-
-
+  <meta charset="utf-8"/>
+  <?php include './includes/database.php';?>
 </table>
 </div>
   </div>
