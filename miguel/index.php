@@ -142,7 +142,7 @@ tr:nth-child(even) {
   <tr>
     <th>Nome</th>
     <th>Morada</th>
-    <th>dfgdgregerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</th>
+    <th>dfgdgregerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</th>
 
   </tr> 
 
