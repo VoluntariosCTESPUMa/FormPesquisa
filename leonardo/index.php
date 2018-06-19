@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bootstrap Example</title>
+  <title>Turismo</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
-/* * {box-sizing: border-box;}
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-} */
 
 .topnav {
   overflow: hidden;
@@ -83,41 +77,11 @@ body {
     border: 1px solid #ccc;  
   }
 }
-
-/* table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border: 1px solid #ddd;
+.container{
+  width: 100%;
+  height: 100%;
 }
 
-th, td {
-    text-align: left;
-    padding: 16px;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2
-}
-
-* {
-    box-sizing: border-box;
-}
-
-/* Create two equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 50%;
-    padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-} */
 </style>
 </head>
 <body>
@@ -129,9 +93,11 @@ tr:nth-child(even) {
 </div>
 
 <div class="container">
-  <h2>Resultados</h2> 
-  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+<div class="col-sm-8" >
+<h2>Resultados</h2>
+  <input class="form-control" id="myInput" type="text" style="width: 50%;" placeholder="Search..">
   <br>
+  <div style="overflow-x:scroll; overflow-y:scroll; height:450px;">
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
@@ -161,10 +127,124 @@ tr:nth-child(even) {
         <td>Ravendale</td>
         <td>a_r@test.com</td>
       </tr>
+      <tr>
+        <td>Anja</td>
+        <td>Ravendale</td>
+        <td>a_r@test.com</td>
+      </tr>
+      <tr>
+        <td>Anja</td>
+        <td>Ravendale</td>
+        <td>a_r@test.com</td>
+      </tr>
+      <tr>
+        <td>Anja</td>
+        <td>Ravendale</td>
+        <td>a_r@test.com</td>
+      </tr>
+      <tr>
+        <td>Anja</td>
+        <td>Ravendale</td>
+        <td>a_r@test.com</td>
+      </tr>
+      <tr>
+        <td>Anja</td>
+        <td>Ravendale</td>
+        <td>a_r@test.com</td>
+      </tr>
+      <tr>
+        <td>Anja</td>
+        <td>Ravendale</td>
+        <td>a_r@test.com</td>
+      </tr>
+      <tr>
+        <td>Anja</td>
+        <td>Ravendale</td>
+        <td>a_r@test.com</td>
+      </tr>
+      <tr>
+        <td>Anja</td>
+        <td>Ravendale</td>
+        <td>a_r@test.com</td>
+      </tr>
+      <tr>
+        <td>Anja</td>
+        <td>Ravendale</td>
+        <td>a_r@test.com</td>
+      </tr>
+      <tr>
+        <td>Anja</td>
+        <td>Ravendale</td>
+        <td>a_r@test.com</td>
+      </tr>
+      <tr>
+        <td>Anja</td>
+        <td>Ravendale</td>
+        <td>a_r@test.com</td>
+      </tr>
+      <tr>
+        <td>Anja</td>
+        <td>Ravendale</td>
+        <td>a_r@test.com</td>
+      </tr>
+      <tr>
+        <td>Anja</td>
+        <td>Ravendale</td>
+        <td>a_r@test.com</td>
+      </tr>
+      <tr>
+        <td>Anja</td>
+        <td>Ravendale</td>
+        <td>a_r@test.com</td>
+      </tr>
+      <tr>
+        <td>Anja</td>
+        <td>Ravendale</td>
+        <td>a_r@test.com</td>
+      </tr>
+
     </tbody>
   </table>
-  
+  </div> 
 </div>
+
+<div class="col-sm-4" >
+<h2>Lista de Exportacao</h2>
+<input class="form-control" id="myInputlista" type="text" style="width: 50%;" placeholder="Search..">
+  <br>
+  <div style="overflow-x:scroll; overflow-y:scroll; height:450px;">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Lista</th>
+      </tr>
+    </thead>
+    <tbody id="myTablelista">
+      <tr>
+        <td>John</td>
+      </tr>
+      <tr>
+        <td>John</td>
+      </tr>
+      <tr>
+        <td>fgh</td>
+      </tr>
+      <tr>
+        <td>qwe</td>
+      </tr>
+      <tr>
+        <td>qwe</td>
+      </tr>
+      <tr>
+        <td>asd</td>
+      </tr>
+    </tbody>
+  </table>
+  </div> 
+</div>
+
+</div>
+
 
 
 </body>
@@ -174,6 +254,19 @@ $(document).ready(function(){
   $("#myInput").on("keyup", function() {
     var value = $(this).val().toLowerCase();
     $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+
+
+<script>
+$(document).ready(function(){
+  $("#myInputlista").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTablelista tr").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
