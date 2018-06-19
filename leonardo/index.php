@@ -84,7 +84,7 @@ body {
   }
 }
 
-/* table {
+table {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
@@ -100,7 +100,7 @@ tr:nth-child(even) {
     background-color: #f2f2f2
 }
 
-* {
+{
     box-sizing: border-box;
 }
 
@@ -117,7 +117,7 @@ tr:nth-child(even) {
     content: "";
     display: table;
     clear: both;
-} */
+} 
 </style>
 </head>
 <body>
