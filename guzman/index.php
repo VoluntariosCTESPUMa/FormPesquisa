@@ -157,7 +157,7 @@ select::-ms-expand {
   -webkit-transition: .25s all ease;
   -o-transition: .25s all ease;
   transition: .25s all ease;
-}
+} 
 
 </style>
 
@@ -165,7 +165,7 @@ select::-ms-expand {
 <body>
 
 <div class="topnav">
-  <a class="active" href="#home">SiteDeBorla</a>
+  <a class="active" href="#home">Turismo!</a>
   <a href="/hoteis">Hoteis</a>
   <a href="/alojamentos">Alojamentos</a>
 </div>
