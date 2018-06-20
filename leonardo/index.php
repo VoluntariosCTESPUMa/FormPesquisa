@@ -77,7 +77,6 @@
     border: 1px solid #ccc;  
   }
 }
-<<<<<<< HEAD
 
 table {
     border-collapse: collapse;
@@ -113,33 +112,6 @@ tr:nth-child(even) {
     display: table;
     clear: both;
 } 
-=======
-.container{
-  width: 100%;
-  height: 100%;
-}
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.sticky + .content {
-  padding-top: 102px;
-}
-
-.even {
-    background-color: #ecf6fc;
-}
-.odd {
-    background-color: #ddeedd;
-}
-.myDragClass {
-    background-color: yellow;
-    font-size: 16pt;
-}
-
->>>>>>> e75af12e245c246cf5b7fab046f625fabaf4d444
 </style>
 </head>
 <body>
