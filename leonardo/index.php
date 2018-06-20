@@ -226,3 +226,7 @@ $(document).ready(function(){
 
 
 </html>
+
+
+
+/* por tudo direitinho na thead, e colocar o filtro a frente da pesquisa */
