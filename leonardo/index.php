@@ -77,41 +77,25 @@
     border: 1px solid #ccc;  
   }
 }
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border: 1px solid #ddd;
+.container{
+  width: 100%;
+  height: 100%;
+}
+#closebtn {
+    margin-left: 15px;
+    color: black;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-th, td {
-    text-align: left;
-    padding: 16px;
+#closebtn:hover {
+    color: red;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2
-}
-
-{
-    box-sizing: border-box;
-}
-
-/* Create two equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 50%;
-    padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-} 
 </style>
 </head>
 <body>
@@ -128,12 +112,13 @@ tr:nth-child(even) {
   <input class="form-control" id="myInput" type="text" style="width: 50%;" placeholder="Search..">
   <br>
   <div style="overflow-x:scroll; overflow-y:scroll; height:450px;">
-  <table class="table table-bordered table-striped">
+  <table class="table table-bordered table-striped" style="border:1px solid #2196F3;">
     <thead>
-      <tr class="teste" id="myHeader">
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+      <tr>
+      <th style="background-color: #2196F3;color:white;text-align:center;border-right:1px solid white;">Nome</th>
+      <th style="background-color: #2196F3;color:white;text-align:center;border-right:1px solid white;">Morada</th>
+      <th style="background-color: #2196F3;color:white;text-align:center;">Telemovel</th>
+  
       </tr>
     </thead>
     <tbody id="myTable">
@@ -238,18 +223,75 @@ tr:nth-child(even) {
   </div> 
 </div>
 
-<div class="col-sm-4">
+<div class="col-sm-4" >
 <h2>Lista de Exportacao</h2>
 <input class="form-control" id="myInputlista" type="text" style="width: 50%;" placeholder="Search..">
   <br>
   <div style="overflow-x:scroll; overflow-y:scroll; height:450px;">
-  <table id="tblData" class="table table-bordered table-striped">
-    <thead>
+  <table class="table table-bordered table-striped">
+    <thead >
       <tr>
-        <th>Lista</th>
+      <th style="background-color: #2196F3;color:white;text-align:center;" >Lista</th>
       </tr>
     </thead>
     <tbody id="myTablelista">
+      <tr>
+        <td><span id='closebtn' onclick=this.parentElement.style.display='none'>&times</span>John</td>
+      </tr>
+      <tr>
+      <td><span id='closebtn' onclick=this.parentElement.style.display='none'>&times</span>John2</td>
+      </tr>
+      <tr>
+        <td> <span id='closebtn' onclick=this.parentElement.style.display='none'>&times</span>John</td>
+      </tr>
+      <tr>
+        <td>qwe</td>
+      </tr>
+      <tr>
+        <td>qwe</td>
+      </tr>
+      <tr>
+        <td>asd</td>
+      </tr>
+      <tr>
+        <td>John</td>
+      </tr>
+      <tr>
+        <td>John</td>
+      </tr>
+      <tr>
+        <td>fgh</td>
+      </tr>
+      <tr>
+        <td>qwe</td>
+      </tr>
+      <tr>
+        <td>qwe</td>
+      </tr>
+      <tr>
+        <td>asd</td>
+      </tr>
+      <tr>
+        <td>John</td>
+      </tr>
+      <tr>
+        <td>John</td>
+      </tr>
+      <tr>
+        <td>fgh</td>
+      </tr>
+      <tr>
+        <td>qwe</td>
+      </tr>
+      <tr>
+        <td>qwe</td>
+      </tr>
+      <tr>
+        <td>asd</td>
+      </tr>
+      <tr>
+        <td>John</td>
+      </tr>
       <tr>
         <td>John</td>
       </tr>
@@ -297,31 +339,6 @@ $(document).ready(function(){
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
-});
-</script>
-
-
-<script>
-window.onscroll = function() {myFunction()};
-
-var teste = document.getElementById("myHeader");
-var sticky = teste.offsetTop;
-
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    teste.classList.add("sticky");
-  } else {
-    teste.classList.remove("sticky");
-  }
-}
-</script>
-
-
-<script>
-$(document).ready(function() {
-    $("#tblData").find("tr:even").addClass("even");
-    $("#tblData").find("tr:odd").addClass("odd");
-    $("#tblData").tableDnD();
 });
 </script>
 
