@@ -89,6 +89,7 @@
   width: 100%;
   height: 100%;
 }
+
 /* #closebtn {
     margin-left: 15px;
     color: black;
@@ -123,7 +124,7 @@
         <option value="1" >data registo</option>
         <option value="2"> Nome do Alojamento </option>
     </select>
-  <br>
+  <br> <br><br><br>
   <div style='overflow-x:scroll; overflow-y:scroll; height:450px;'>
   <table class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
     <thead>
@@ -221,6 +222,7 @@ $(document).ready(function(){
   });
 });
 </script>
+
 
 
 </html>
