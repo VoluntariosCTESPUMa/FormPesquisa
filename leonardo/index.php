@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php require_once("ligacao.php"); ?>
+
 <head>
   <title>Turismo</title>
   <meta charset="utf-8">
@@ -107,14 +107,6 @@
   <a href="/alojamentos">Alojamentos</a>
 </div>
 
-  <?php  
-
-  $sql="SELECT * FROM alojamento";
-  $resultados=mysqli_query($conn,$sql); 
-  $nresultadostodos=mysqli_num_rows($resultados);
-
-
-echo"
 <div class='container'>
 <div class='col-sm-8'>
 <h2>Resultados</h2>
@@ -124,7 +116,7 @@ echo"
   <table class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
     <thead>
       <tr>
-      <th style='background-color: #2196F3;color:white;text-align:center;border-right:1px solid white;'>{$alojamento['titulo']}</th>
+      <th style='background-color: #2196F3;color:white;text-align:center;border-right:1px solid white;'>asdasdad</th>
       <th style='background-color: #2196F3;color:white;text-align:center;border-right:1px solid white;'>Morada</th>
       <th style='background-color: #2196F3;color:white;text-align:center;'>Telemovel</th>
   
@@ -140,7 +132,7 @@ echo"
   </table>
   </div> 
 </div>";
-?>
+
 <div class="col-sm-4" >
 <h2>Lista de Exportacao</h2>
 <input class="form-control" id="myInputlista" type="text" style="width: 50%;" placeholder="Search..">
