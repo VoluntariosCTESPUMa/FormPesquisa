@@ -117,7 +117,12 @@
 <div class='container'>
 <div class='col-sm-8'>
 <h2>Resultados</h2>
-  <input class='form-control' id='myInput' type='text' style='width: 50%;' placeholder='Search..'>
+  <input onkeyup="myFunction()" class='form-control' id='myInput' type='text' style='width: 50%;' placeholder='Search..'>
+  <select id="mySelect">
+        <option value="0" >Numero de Registro</option>
+        <option value="1" >data registo</option>
+        <option value="2"> Nome do Alojamento </option>
+    </select>
   <br>
   <div style='overflow-x:scroll; overflow-y:scroll; height:450px;'>
   <table class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
@@ -161,79 +166,6 @@
       <th style="background-color: #2196F3;color:white;text-align:center;" >Lista</th>
       </tr>
     </thead>
-    <tbody id="myTablelista">
-      <tr>
-        <td><span id='closebtn' onclick=this.parentElement.style.display='none'>&times</span>John</td>
-      </tr>
-      <tr>
-      <td><span id='closebtn' onclick=this.parentElement.style.display='none'>&times</span>John2</td>
-      </tr>
-      <tr>
-        <td> <span id='closebtn' onclick=this.parentElement.style.display='none'>&times</span>John</td>
-      </tr>
-      <tr >
-        <td>teste</td>
-      </tr>
-      <tr>
-        <td>teste2</td>
-      </tr>
-      <tr>
-        <td>asd</td>
-      </tr>
-      <tr>
-        <td>John</td>
-      </tr>
-      <tr>
-        <td>John</td>
-      </tr>
-      <tr>
-        <td>fgh</td>
-      </tr>
-      <tr>
-        <td>qwe</td>
-      </tr>
-      <tr>
-        <td>qwe</td>
-      </tr>
-      <tr>
-        <td>asd</td>
-      </tr>
-      <tr>
-        <td>John</td>
-      </tr>
-      <tr>
-        <td>John</td>
-      </tr>
-      <tr>
-        <td>fgh</td>
-      </tr>
-      <tr>
-        <td>qwe</td>
-      </tr>
-      <tr>
-        <td>qwe</td>
-      </tr>
-      <tr>
-        <td>asd</td>
-      </tr>
-      <tr>
-        <td>John</td>
-      </tr>
-      <tr>
-        <td>John</td>
-      </tr>
-      <tr>
-        <td>fgh</td>
-      </tr>
-      <tr>
-        <td>qwe</td>
-      </tr>
-      <tr>
-        <td>qwe</td>
-      </tr>
-      <tr>
-        <td>asd</td>
-      </tr>
     </tbody>
   </table>
   </div> 
@@ -245,7 +177,7 @@
 
 </body>
 
-<script>
+<!-- <script>
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {
     var value = $(this).val().toLowerCase();
@@ -254,6 +186,27 @@ $(document).ready(function(){
     });
   });
 });
+</script> -->
+
+<script>
+function myFunction() {
+  var x = document.getElementById("mySelect").selectedIndex;
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[x];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
 </script>
 
 
@@ -268,5 +221,6 @@ $(document).ready(function(){
   });
 });
 </script>
+
 
 </html>
