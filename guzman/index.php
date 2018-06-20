@@ -95,7 +95,9 @@
 #closebtn:hover {
     color: red;
 }
-
+.width100{
+  width:100%;
+}
 </style>
 </head>
 <body>
@@ -111,113 +113,13 @@
 <h2>Resultados</h2>
   <input class="form-control" id="myInput" type="text" style="width: 50%;" placeholder="Search..">
   <br>
-  <div style="overflow-x:scroll; overflow-y:scroll; height:450px;">
+  <div class="width100" style="overflow-x:scroll; overflow-y:scroll; height:550px;">
   <table class="table table-bordered table-striped" style="border:1px solid #2196F3;">
     <thead>
-      <tr>
-      <th style="background-color: #2196F3;color:white;text-align:center;border-right:1px solid white;">Nome</th>
-      <th style="background-color: #2196F3;color:white;text-align:center;border-right:1px solid white;">Morada</th>
-      <th style="background-color: #2196F3;color:white;text-align:center;">Telemovel</th>
-  
-      </tr>
     </thead>
     <tbody id="myTable">
-      <tr>
-        <td draggable="true" >John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@mail.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@greatstuff.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-
+    <meta charset="utf-8"/>
+  <?php include './includes/database.php';?>
     </tbody>
   </table>
   </div> 
