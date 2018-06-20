@@ -77,7 +77,6 @@
     border: 1px solid #ccc;  
   }
 }
-<<<<<<< HEAD
 
 table {
     border-collapse: collapse;
@@ -113,13 +112,6 @@ tr:nth-child(even) {
     display: table;
     clear: both;
 } 
-=======
-.container{
-  width: 100%;
-  height: 100%;
-}
-
->>>>>>> e75af12e245c246cf5b7fab046f625fabaf4d444
 </style>
 </head>
 <body>
@@ -138,7 +130,7 @@ tr:nth-child(even) {
   <div style="overflow-x:scroll; overflow-y:scroll; height:450px;">
   <table class="table table-bordered table-striped">
     <thead>
-      <tr>
+      <tr class="teste" id="myHeader">
         <th>Firstname</th>
         <th>Lastname</th>
         <th>Email</th>
@@ -246,21 +238,18 @@ tr:nth-child(even) {
   </div> 
 </div>
 
-<div class="col-sm-4" >
+<div class="col-sm-4">
 <h2>Lista de Exportacao</h2>
 <input class="form-control" id="myInputlista" type="text" style="width: 50%;" placeholder="Search..">
   <br>
   <div style="overflow-x:scroll; overflow-y:scroll; height:450px;">
-  <table class="table table-bordered table-striped">
+  <table id="tblData" class="table table-bordered table-striped">
     <thead>
       <tr>
         <th>Lista</th>
       </tr>
     </thead>
     <tbody id="myTablelista">
-      <tr>
-        <td>John</td>
-      </tr>
       <tr>
         <td>John</td>
       </tr>
@@ -308,6 +297,31 @@ $(document).ready(function(){
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
+});
+</script>
+
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var teste = document.getElementById("myHeader");
+var sticky = teste.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    teste.classList.add("sticky");
+  } else {
+    teste.classList.remove("sticky");
+  }
+}
+</script>
+
+
+<script>
+$(document).ready(function() {
+    $("#tblData").find("tr:even").addClass("even");
+    $("#tblData").find("tr:odd").addClass("odd");
+    $("#tblData").tableDnD();
 });
 </script>
 
