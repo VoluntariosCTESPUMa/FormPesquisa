@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<?php require_once("ligacao.php"); ?>
 <head>
   <title>Turismo</title>
   <meta charset="utf-8">
@@ -8,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   <style>
 
 .topnav {
@@ -78,11 +78,18 @@
     border: 1px solid #ccc;  
   }
 }
+.thcss{
+  background-color: #2196F3;
+  color:white;
+  text-align:justify;
+  border-right:1px solid white;
+  padding:15px;
+}
 .container{
   width: 100%;
   height: 100%;
 }
-#closebtn {
+/* #closebtn {
     margin-left: 15px;
     color: black;
     font-weight: bold;
@@ -95,9 +102,9 @@
 
 #closebtn:hover {
     color: red;
-}
-
+} */
 </style>
+
 </head>
 <body>
 
@@ -107,14 +114,6 @@
   <a href="/alojamentos">Alojamentos</a>
 </div>
 
-  <?php  
-
-  $sql="SELECT * FROM alojamento";
-  $resultados=mysqli_query($conn,$sql); 
-  $nresultadostodos=mysqli_num_rows($resultados);
-
-
-echo"
 <div class='container'>
 <div class='col-sm-8'>
 <h2>Resultados</h2>
@@ -124,23 +123,33 @@ echo"
   <table class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
     <thead>
       <tr>
-      <th style='background-color: #2196F3;color:white;text-align:center;border-right:1px solid white;'>{$alojamento['titulo']}</th>
-      <th style='background-color: #2196F3;color:white;text-align:center;border-right:1px solid white;'>Morada</th>
-      <th style='background-color: #2196F3;color:white;text-align:center;'>Telemovel</th>
-  
+      <th class="thcss">Numero de Registo</th>
+      <th class="thcss">Data do Registo</th>
+      <th class="thcss">Nome do Alojamento</th>
+      <th class="thcss">Imovél Posterior 1951</th>
+      <th class="thcss">Data Abertura Público</th>
+      <th class="thcss">Modalidade</th>
+      <th class="thcss">Número de camas</th>
+      <th class="thcss">Número de Utentes</th>
+      <th class="thcss">Número de Quartos</th>
+      <th class="thcss">Número de Beliches</th>
+      <th class="thcss">Localização(Endereço)</th>
+      <th class="thcss">Localização(Código de Postal)</th>
+      <th class="thcss"> Localidade</th>
+      <th class="thcss">Freguesia</th>
+      <th class="thcss">Concelho</th>
+      <th class="thcss">Distrito </th>
       </tr>
     </thead>
     <tbody id='myTable'>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
+    <tr>
+    <?php include './includes/database.php';?>
+    </tr>
     </tbody>
   </table>
   </div> 
-</div>";
-?>
+</div>
+
 <div class="col-sm-4" >
 <h2>Lista de Exportacao</h2>
 <input class="form-control" id="myInputlista" type="text" style="width: 50%;" placeholder="Search..">

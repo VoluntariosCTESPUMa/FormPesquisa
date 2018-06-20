@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
+// header('Content-Type: text/html; charset=utf-8');
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -22,12 +22,9 @@ function alerta($num){
 }
 
 if ($result->num_rows > 0) {
-    echo "<table><tr><th>Numero de Registo</th><th>Data do Registo</th><th>Nome do Alojamento</th><th>Imovél Posterior 1951</th><th>Data Abertura Público</th><th>Modalidade</th><th>Número de camas</th><th>Número de Utentes</th><th>Número de Quartos</th><th>Número de Beliches</th><th>Localização(Endereço)</th><th>Localização(Código de Postal)</th></tr>";
-    
     while($row = $result->fetch_assoc()) { 
-        echo "<tr onclick='alerta(".$row['numero registo'].")'><td>".$row["numero registo"]."</td><td>".$row["Data do registo"]."</td><td>".$row["Nome do Alojamento"]."</td><td>".$row["Imovel_Posterior_1951"]."</td><td>".$row["Data_Abertura_Publico"]."</td><td>".$row["Modalidade"]."</td><td>".$row["numero_camas"]."</td><td>".$row["Numero_Utentes"]."</td><td>".$row["numero_quartos"]."</td><td>".$row["numero_beliches"]."</td><td>".$row["Endereco"]."</td><td>".$row["codigo_postal"]."</td></tr>";
+        echo "<tr style='border-bottom:1px solid black;' onclick='alerta(".$row['numero_registo'].")'><td>".$row["numero_registo"]."</td><td>".$row["Data_registo"]."</td><td>".$row["Nome_Alojamento"]."</td><td style='text-align:center'>".$row["Imovel_Posterior_1951"]."</td><td>".$row["Data_Abertura_Publico"]."</td><td>".$row["Modalidade"]."</td><td style='text-align:center'>".$row["numero_camas"]."</td><td style='text-align:center'>".$row["Numero_Utentes"]."</td><td style='text-align:center'>".$row["numero_quartos"]."</td><td style='text-align:center'>".$row["numero_beliches"]."</td><td>".$row["Endereco"]."</td><td style='text-align:center'>".$row["codigo_postal"]."</td><td style='text-align:center'>".$row["Localidade"]."</td><td style='text-align:center'>".$row["Freguesia"]."</td><td style='text-align:center'>".$row["Concelho"]."</td><td style='text-align:center'>".$row["Distrito"]."</td></tr>";
     }
-    echo "</table>";
 } else {
     echo "0 results";
 }
