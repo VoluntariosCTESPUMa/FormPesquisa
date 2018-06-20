@@ -123,7 +123,7 @@
     </thead>
     <tbody id="myTable">
       <tr>
-        <td>John</td>
+        <td draggable="true" >John</td>
         <td>Doe</td>
         <td>john@example.com</td>
       </tr>
