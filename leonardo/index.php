@@ -143,17 +143,26 @@
         <option value="2">Nome do Alojamento</option>
         <option value="3">Imovél Posterior 1951</option>
         <option value="4">Data Abertura Público</option>
-        <option value="5"> Modalidade</option>
+        <option value="5">Modalidade</option>
         <option value="6">Número de camas</option>
         <option value="7">Número de Utentes</option>
-        <option value="8"> Número de Quartos </option>
+        <option value="8">Número de Quartos </option>
         <option value="9">Número de Beliches</option>
         <option value="10">Localização(Endereço) </option>
         <option value="11">Localização(Código de Postal)</option>
-        <option value="12">Localidade</option>
-        <option value="13">Freguesia</option>
-        <option value="14">Concelho</option>
-        <option value="15">Distrito </option>
+        <option value="12">Localização(Localidade)</option>
+        <option value="13">Localização(Freguesia)</option>
+        <option value="14">Localização(Concelho)</option>
+        <option value="15">Localização(Distrito)</option>
+        <option value="16">NUTT_II</option>
+        <option value="17">Titular da Exploração</option>
+        <option value="18">Titular Qualidade</option>
+        <option value="19">Contribuinte</option>
+        <option value="20">Tipo de Titular</option>
+        <option value="21">Telefone</option>
+        <option value="22">Fax</option>
+        <option value="23">Telemovel</option>
+        <option value="24">Email</option>
 
     </select>
     </div>
@@ -360,7 +369,8 @@ $(document).ready(function(){
     // else if(){
     var row_id;
     var linha;
-      
+    var tentar = 0;
+
     $('#sourcetable').on('click', "tr", function(e){
     row_id = $("td:first a.ajaxCall", this).attr("rel");
     // window.console&&console.log(JSON.parse(row_id));
@@ -369,13 +379,13 @@ $(document).ready(function(){
     var row   = table.insertRow(-1);
     var cell1 = row.insertCell(-1);
     linha = JSON.parse(row_id);
-    var tentar = 0;
+  
     
     if(tentar==0){
       cell1.innerHTML ='<div style="overflow-x:scroll; overflow-y:scroll; height:450px;"><table id="replaceme" class="table table-bordered table-striped" style="border:1px solid #2196F3;"><thead><tr><th class="thcss">Numero de Registo</th><th class="thcss">Data do Registo</th><th class="thcss">Nome do Alojamento</th><th class="thcss">Imovél Posterior 1951</th><th class="thcss">Data Abertura Público</th><th class="thcss">Modalidade</th><th class="thcss">Número de camas</th><th class="thcss">Número de Utentes</th><th class="thcss">Número de Quartos</th><th class="thcss">Número de Beliches</th><th class="thcss">Localização(Endereço)</th><th class="thcss">Localização(Código de Postal)</th><th class="thcss">Localidade</th><th class="thcss">Freguesia</th><th class="thcss">Concelho</th><th class="thcss">Distrito </th></tr></thead><tbody><tr><td>'+linha['numero_registo']+'</td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></tbody></table></div></div>'
       tentar++;
     }else if(tentar==1){
-      cell1.innerHTML ='<tbody><tr><td>'+linha['numero_registo']+'</td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></tbody>'
+      cell1.innerHTML ='<tbody><tr><td>numero registo -> '+linha['numero_registo']+'</td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></tbody>'
     }
     
     window.console&&console.log(linha);
