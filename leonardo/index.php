@@ -105,42 +105,15 @@
  flex-wrap: wrap;
 }
 
-/* #closebtn {
-    margin-left: 15px;
-    color: black;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#closebtn:hover {
-    color: red;
-} */
-
 
 /* loading screen */
+.layer1_class { position: absolute; z-index: 1; top: 100px; left: 0px; visibility: visible; }
+.layer2_class { position: absolute; z-index: 2; top: 10px; left: 10px; visibility: hidden }
 
 </style>
-<style media="screen" type="text/css">
-      .layer1_class { position: absolute; z-index: 1; top: 100px; left: 0px; visibility: visible; }
-      .layer2_class { position: absolute; z-index: 2; top: 10px; left: 10px; visibility: hidden }
-    </style>
-
 </head>
-<script>
-      function downLoad(){
-        if (document.all){
-            document.all["layer1"].style.visibility="hidden";
-            document.all["layer2"].style.visibility="visible";
-        } else if (document.getElementById){
-            node = document.getElementById("layer1").style.visibility='hidden';
-            node = document.getElementById("layer2").style.visibility='visible';
-        }
-      }
-    </script>
+
+
 <body onload="downLoad()">
 
 <div id="layer1" class="layer1_class">
@@ -186,9 +159,9 @@
     </div>
     <br>
   <div style='overflow-x:scroll; overflow-y:scroll; height:450px;'>
-  <table class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
+  <table id='sourcetable' class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
     <thead>
-      <tr>
+      <!-- <tr>
       <th class="thcss">Numero de Registo</th>
       <th class="thcss">Data do Registo</th>
       <th class="thcss">Nome do Alojamento</th>
@@ -205,6 +178,34 @@
       <th class="thcss">Freguesia</th>
       <th class="thcss">Concelho</th>
       <th class="thcss">Distrito </th>
+      </tr> -->
+      <tr>
+      <th class="thcss">Numero de Registo</th>
+      <th class="thcss">Data do Registo</th>
+      <th class="thcss">Nome do Alojamento</th>
+      <th class="thcss">Imovél Posterior 1951</th>
+      <th class="thcss">Data Abertura Público</th>
+      <th class="thcss">Modalidade</th>
+      <th class="thcss">Número de camas</th>
+      <th class="thcss">Número de Utentes</th>
+      <th class="thcss">Número de Quartos</th>
+      <th class="thcss">Número de Beliches</th>
+      <th class="thcss">Localização(Endereço)</th>
+      <th class="thcss">Localização(Código de Postal)</th>
+      <th class="thcss">Localização(Localidade)</th>
+      <th class="thcss">Localização(Freguesia)</th>
+      <th class="thcss">Localização(Concelho)</th>
+      <th class="thcss">Localização(Distrito)</th>
+      <th class="thcss">NUTT_II</th>
+      <th class="thcss">Titular da Exploração</th>
+      <th class="thcss">Titular Qualidade</th>
+      <th class="thcss">Contribuinte</th>
+      <th class="thcss">Tipo de Titular</th>
+      <th class="thcss">Pais Titular</th>
+      <th class="thcss">Telefone</th>
+      <th class="thcss">Fax</th>
+      <th class="thcss">Telemovel</th>
+      <th class="thcss">Email</th>
       </tr>
     </thead>
     <tbody id='myTable'>
@@ -219,42 +220,75 @@
 
 <div>
 <h2>Lista de Exportacao</h2>
-<input class="form-control" id="myInputlista" type="text" style="width: 50%;" placeholder="Search..">
-<br>
-  <div style='overflow-x:scroll; overflow-y:scroll; height:450px;'>
-  <table class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
-    <thead >
+<!-- <input class="form-control" id="myInputlista" type="text" style="width: 50%;" placeholder="Search..">
+<br> -->
+  <!-- <div style='overflow-x:scroll; overflow-y:scroll; height:450px;'>
+  <table id='replaceme' class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
+  <thead >
       <tr >
-      <th class="thcss">Numero de Registo</th>
-      <th class="thcss">Data do Registo</th>
-      <th class="thcss">Nome do Alojamento</th>
-      <th class="thcss">Imovél Posterior 1951</th>
-      <th class="thcss">Data Abertura Público</th>
-      <th class="thcss">Modalidade</th>
-      <th class="thcss">Número de camas</th>
-      <th class="thcss">Número de Utentes</th>
-      <th class="thcss">Número de Quartos</th>
-      <th class="thcss" >Número de Beliches</th>
-      <th class="thcss">Localização(Endereço)</th>
-      <th class="thcss">Localização(Código de Postal)</th>
-      <th class="thcss">Localidade</th>
-      <th class="thcss">Freguesia</th>
-      <th class="thcss">Concelho</th>
-      <th class="thcss">Distrito </th>
+      <th class='thcss'>Numero de Registo</th>
+      <th class='thcss'>Data do Registo</th>
+      <th class='thcss'>Nome do Alojamento</th>
+      <th class='thcss'>Imovél Posterior 1951</th>
+      <th class='thcss'>Data Abertura Público</th>
+      <th class='thcss'>Modalidade</th>
+      <th class='thcss'>Número de camas</th>
+      <th class='thcss'>Número de Utentes</th>
+      <th class='thcss'>Número de Quartos</th>
+      <th class='thcss' >Número de Beliches</th>
+      <th class='thcss'>Localização(Endereço)</th>
+      <th class='thcss'>Localização(Código de Postal)</th>
+      <th class='thcss'>Localidade</th>
+      <th class='thcss'>Freguesia</th>
+      <th class='thcss'>Concelho</th>
+      <th class='thcss'>Distrito </th>
       </tr>
     </thead>
     <tbody>
-    <tr>
-
-
-    </tr>
+    <tr><td>'+linha['numero_registo']+'</td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr>
     </tbody>
   </table>
   </div> 
-</div>
+</div> -->
 
-</div>
 
+
+<table >
+<!-- <thead >
+      <tr >
+      <th class='thcss'>Numero de Registo</th>
+      <th class='thcss'>Data do Registo</th>
+      <th class='thcss'>Nome do Alojamento</th>
+      <th class='thcss'>Imovél Posterior 1951</th>
+      <th class='thcss'>Data Abertura Público</th>
+      <th class='thcss'>Modalidade</th>
+      <th class='thcss'>Número de camas</th>
+      <th class='thcss'>Número de Utentes</th>
+      <th class='thcss'>Número de Quartos</th>
+      <th class='thcss' >Número de Beliches</th>
+      <th class='thcss'>Localização(Endereço)</th>
+      <th class='thcss'>Localização(Código de Postal)</th>
+      <th class='thcss'>Localidade</th>
+      <th class='thcss'>Freguesia</th>
+      <th class='thcss'>Concelho</th>
+      <th class='thcss'>Distrito </th>
+      </tr>
+    </thead> -->
+    <!-- <tr id="count">
+    <td id="demo"> -->
+    <tbody id="replaceme">
+
+</tbody>
+    <!-- </td>
+    </tr> -->
+    <a href="#" id="down">Download</a>
+    </table>
+    <br>
+    
+   
+  </div>
+</div>
+</div> 
 
 
 </body>
@@ -301,6 +335,111 @@ $(document).ready(function(){
     });
   });
 });
+</script>
+
+
+<script>
+      function downLoad(){
+        if (document.all){
+            document.all["layer1"].style.visibility="hidden";
+            document.all["layer2"].style.visibility="visible";
+        } else if (document.getElementById){
+            node = document.getElementById("layer1").style.visibility='hidden';
+            node = document.getElementById("layer2").style.visibility='visible';
+        }
+      }
+    </script>
+
+
+
+
+     <script>
+    // if( $('#replaceme td').length == 0) {
+    //   document.getElementById("replaceme").innerHTML = "Não tem nada dentro da sua lista de exportação!"
+    // }
+    // else if(){
+    var row_id;
+    var linha;
+      
+    $('#sourcetable').on('click', "tr", function(e){
+    row_id = $("td:first a.ajaxCall", this).attr("rel");
+    // window.console&&console.log(JSON.parse(row_id));
+
+    var table = document.getElementById("replaceme");
+    var row   = table.insertRow(-1);
+    var cell1 = row.insertCell(-1);
+    linha = JSON.parse(row_id);
+    var tentar = 0;
+    
+    if(tentar==0){
+      cell1.innerHTML ='<div style="overflow-x:scroll; overflow-y:scroll; height:450px;"><table id="replaceme" class="table table-bordered table-striped" style="border:1px solid #2196F3;"><thead><tr><th class="thcss">Numero de Registo</th><th class="thcss">Data do Registo</th><th class="thcss">Nome do Alojamento</th><th class="thcss">Imovél Posterior 1951</th><th class="thcss">Data Abertura Público</th><th class="thcss">Modalidade</th><th class="thcss">Número de camas</th><th class="thcss">Número de Utentes</th><th class="thcss">Número de Quartos</th><th class="thcss">Número de Beliches</th><th class="thcss">Localização(Endereço)</th><th class="thcss">Localização(Código de Postal)</th><th class="thcss">Localidade</th><th class="thcss">Freguesia</th><th class="thcss">Concelho</th><th class="thcss">Distrito </th></tr></thead><tbody><tr><td>'+linha['numero_registo']+'</td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></tbody></table></div></div>'
+      tentar++;
+    }else if(tentar==1){
+      cell1.innerHTML ='<tbody><tr><td>'+linha['numero_registo']+'</td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></tbody>'
+    }
+    
+    window.console&&console.log(linha);
+        // var csv = linha['numero_registo'] + "\t" + linha['Data_registo'];
+        // var data = new Blob([csv]);
+        // var a = document.getElementById('aa');
+        // a.href = URL.createObjectURL(data);
+    //  var cont = $('#replaceme tr td').length-1;
+    //  document.getElementById("demo").innerHTML = "Tem " + cont + " Items na sua lista!";
+     
+    });
+    $('#down').on('click', function(){
+      function randomDate(start, end) {
+			var d= new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+			return d;
+		}
+		  var excel = $JExcel.new("Calibri light 10 #333333");			// Default font
+			
+			excel.set( {sheet:0,value:"Alojamentos" } );
+			
+			var evenRow=excel.addStyle ( { 																	// Style for even ROWS
+				border: "none,none,none,thin #333333"});													// Borders are LEFT,RIGHT,TOP,BOTTOM. Check $JExcel.borderStyles for a list of valid border styles
+			var oddRow=excel.addStyle ( { 																	// Style for odd ROWS
+				fill: "#ECECEC" , 																			// Background color, plain #RRGGBB, there is a helper $JExcel.rgbToHex(r,g,b)
+				border: "none,none,none,thin #333333"}); 
+			
+ 
+			var headers=["Número Registo", "Data Registo", "Nome do Alojamento", "Imovél Posterior 1951", "Data Abertura Público", "Modalidade", "Número de camas", "Número de Utentes", "Número de Quartos", "Número de Beliches", "Endereço", "Código de Postal", "Localidade", "Freguesia", "Concelho", "Distrito", "NUTT_II"];							// This array holds the HEADERS text
+			var formatHeader=excel.addStyle ( { 															// Format for headers
+					border: "none,none,none,thin #333333", 													// 		Border for header
+					font: "Calibri 12 #0000AA B"}); 														// 		Font for headers
+			for (var i=0;i<headers.length;i++){																// Loop all the haders
+				excel.set(0,i,0,headers[i],formatHeader);													// Set CELL with header text, using header format
+				excel.set(0,i,undefined,"auto");															// Set COLUMN width to auto (according to the standard this is only valid for numeric columns)
+			}
+			
+			
+			// Now let's write some data
+			var initDate = new Date(2000, 0, 1);
+			var endDate = new Date(2016, 0, 1);
+			var dateStyle = excel.addStyle ( { 																// Format for date cells
+					align: "R",																				// 		aligned to the RIGHT
+					format: "yyyy.mm.dd hh:mm:ss", 															// 		using DATE mask, Check $JExcel.formats for built-in formats or provide your own 
+					font: "#00AA00"}); 																		// 		in color green
+			
+				for(var i=1; i<$('#replaceme table').length+1;i++){																
+          excel.set(0,0,i,linha['numero_registo']);	
+          excel.set(0,1,i,linha['Data_registo']);
+          excel.set(0,2,i,linha['Nome_Alojamento']);
+          excel.set(0,3,i,linha['Imovel_Posterior_1951']);															
+          var d=randomDate(initDate,endDate);															
+          excel.set(0,1,d.toLocaleString());														
+          excel.set(0,2,$JExcel.toExcelLocalTime(d));											
+          excel.set(0,3,$JExcel.toExcelLocalTime(d),dateStyle);										
+          excel.set(0,4,"Some other text");															
+        }	
+					
+		    excel.generate("ALOJAMENTOS.xlsx");
+			
+		});
+  
+
+  // } 
+    
 </script>
 
 
