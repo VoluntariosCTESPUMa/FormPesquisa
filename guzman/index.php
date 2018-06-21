@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   <style>
 
 .topnav {
@@ -77,11 +78,23 @@
     border: 1px solid #ccc;  
   }
 }
+.thcss{
+  background-color: #2196F3;
+  color:white;
+  text-align:justify;
+  border-right:1px solid white;
+  padding:15px;
+}
 .container{
   width: 100%;
   height: 100%;
 }
-#closebtn {
+.direitinho {
+ display: flex;
+ flex-wrap: wrap;
+}
+
+/* #closebtn {
     margin-left: 15px;
     color: black;
     font-weight: bold;
@@ -94,9 +107,9 @@
 
 #closebtn:hover {
     color: red;
-}
-
+} */
 </style>
+
 </head>
 <body>
 
@@ -106,118 +119,58 @@
   <a href="/alojamentos">Alojamentos</a>
 </div>
 
-<div class="container">
-<div class="col-sm-8" >
+<div class='container'>
+<div class='col-sm-8'>
 <h2>Resultados</h2>
-  <input class="form-control" id="myInput" type="text" style="width: 50%;" placeholder="Search..">
-  <br>
-  <div style="overflow-x:scroll; overflow-y:scroll; height:450px;">
-  <table class="table table-bordered table-striped" style="border:1px solid #2196F3;">
+<div class="direitinho">
+  <input onkeyup="myFunction()" class="form-control" id='myInput' type='text' style='width: 50%;' placeholder='Search..'>
+  <select class="form-control" style='width: 30%; margin-left: 10px;' id="mySelect">
+        <option value="0" >Numero de Registo</option>
+        <option value="1" >Data do Registo</option>
+        <option value="2">Nome do Alojamento</option>
+        <option value="3" >Imovél Posterior 1951</option>
+        <option value="4" >Data Abertura Público</option>
+        <option value="5"> Modalidade</option>
+        <option value="6" >Número de camas</option>
+        <option value="7" >Número de Utentes</option>
+        <option value="8"> Número de Quartos </option>
+        <option value="9" >Número de Beliches</option>
+        <option value="10">Localização(Endereço) </option>
+        <option value="11" >Localização(Código de Postal)</option>
+        <option value="12" >Localidade</option>
+        <option value="13">Freguesia</option>
+        <option value="14" >Concelho</option>
+        <option value="15" >Distrito </option>
+
+    </select>
+    </div>
+    <br>
+  <div style='overflow-x:scroll; overflow-y:scroll; height:450px;'>
+  <table class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
     <thead>
       <tr>
-      <th style="background-color: #2196F3;color:white;text-align:center;border-right:1px solid white;">Nome</th>
-      <th style="background-color: #2196F3;color:white;text-align:center;border-right:1px solid white;">Morada</th>
-      <th style="background-color: #2196F3;color:white;text-align:center;">Telemovel</th>
-  
+      <th class="thcss">Numero de Registo</th>
+      <th class="thcss">Data do Registo</th>
+      <th class="thcss">Nome do Alojamento</th>
+      <th class="thcss">Imovél Posterior 1951</th>
+      <th class="thcss">Data Abertura Público</th>
+      <th class="thcss">Modalidade</th>
+      <th class="thcss">Número de camas</th>
+      <th class="thcss">Número de Utentes</th>
+      <th class="thcss">Número de Quartos</th>
+      <th class="thcss">Número de Beliches</th>
+      <th class="thcss">Localização(Endereço)</th>
+      <th class="thcss">Localização(Código de Postal)</th>
+      <th class="thcss">Localidade</th>
+      <th class="thcss">Freguesia</th>
+      <th class="thcss">Concelho</th>
+      <th class="thcss">Distrito </th>
       </tr>
     </thead>
-    <tbody id="myTable">
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@mail.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@greatstuff.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-
+    <tbody id='myTable'>
+    <tr>
+    <?php include './includes/database.php';?>
+    </tr>
     </tbody>
   </table>
   </div> 
@@ -234,79 +187,6 @@
       <th style="background-color: #2196F3;color:white;text-align:center;" >Lista</th>
       </tr>
     </thead>
-    <tbody id="myTablelista">
-      <tr>
-        <td><span id='closebtn' onclick=this.parentElement.style.display='none'>&times</span>John</td>
-      </tr>
-      <tr>
-      <td><span id='closebtn' onclick=this.parentElement.style.display='none'>&times</span>John2</td>
-      </tr>
-      <tr>
-        <td> <span id='closebtn' onclick=this.parentElement.style.display='none'>&times</span>John</td>
-      </tr>
-      <tr>
-        <td>qwe</td>
-      </tr>
-      <tr>
-        <td>qwe</td>
-      </tr>
-      <tr>
-        <td>asd</td>
-      </tr>
-      <tr>
-        <td>John</td>
-      </tr>
-      <tr>
-        <td>John</td>
-      </tr>
-      <tr>
-        <td>fgh</td>
-      </tr>
-      <tr>
-        <td>qwe</td>
-      </tr>
-      <tr>
-        <td>qwe</td>
-      </tr>
-      <tr>
-        <td>asd</td>
-      </tr>
-      <tr>
-        <td>John</td>
-      </tr>
-      <tr>
-        <td>John</td>
-      </tr>
-      <tr>
-        <td>fgh</td>
-      </tr>
-      <tr>
-        <td>qwe</td>
-      </tr>
-      <tr>
-        <td>qwe</td>
-      </tr>
-      <tr>
-        <td>asd</td>
-      </tr>
-      <tr>
-        <td>John</td>
-      </tr>
-      <tr>
-        <td>John</td>
-      </tr>
-      <tr>
-        <td>fgh</td>
-      </tr>
-      <tr>
-        <td>qwe</td>
-      </tr>
-      <tr>
-        <td>qwe</td>
-      </tr>
-      <tr>
-        <td>asd</td>
-      </tr>
     </tbody>
   </table>
   </div> 
@@ -318,7 +198,7 @@
 
 </body>
 
-<script>
+<!-- <script>
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {
     var value = $(this).val().toLowerCase();
@@ -327,6 +207,27 @@ $(document).ready(function(){
     });
   });
 });
+</script> -->
+
+<script>
+function myFunction() {
+  var x = document.getElementById("mySelect").selectedIndex;
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[x];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
 </script>
 
 
@@ -341,5 +242,7 @@ $(document).ready(function(){
   });
 });
 </script>
+
+
 
 </html>
