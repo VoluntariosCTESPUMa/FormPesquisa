@@ -20,4 +20,7 @@ if($alojamento=='DONE'){
     };
 }
 }
+else if($alojamento=='FILENOTFOUND'){
+    echo " Por favor insira um ficheiro excel valido na pasta";
+}
 ?>
