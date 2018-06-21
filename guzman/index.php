@@ -9,6 +9,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <style>
+  .loader {
+  position: fixed;
+  background-color: #FFF;
+  opacity: 1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
 
 .topnav {
   overflow: hidden;
@@ -84,11 +94,17 @@
   text-align:justify;
   border-right:1px solid white;
   padding:15px;
+  border:20px;
 }
 .container{
   width: 100%;
   height: 100%;
 }
+.direitinho {
+ display: flex;
+ flex-wrap: wrap;
+}
+
 /* #closebtn {
     margin-left: 15px;
     color: black;
@@ -104,68 +120,41 @@
     color: red;
 } */
 
-/* Reset Select */
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  outline: 0;
-  box-shadow: none;
-  border: 0 !important;
-  background: #2c3e50;
-  background-image: none;
-}
-/* Custom Select */
-.select {
-  position: relative;
-  display: block;
-  width: 20em;
-  height: 3em;
-  line-height: 3;
-  background: #2c3e50;
-  overflow: hidden;
-  border-radius: .25em;
-}
-select {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0 0 0 .5em;
-  color: #fff;
-  cursor: pointer;
-}
-select::-ms-expand {
-  display: none;
-}
-/* Arrow */
-.select::after {
-  content: '\25BC';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0 1em;
-  background: #34495e;
-  pointer-events: none;
-}
-/* Transition */
-.select:hover::after {
-  color: #f39c12;
-}
-.select::after {
-  -webkit-transition: .25s all ease;
-  -o-transition: .25s all ease;
-  transition: .25s all ease;
-} 
+
+/* loading screen */
 
 </style>
+<style media="screen" type="text/css">
+      .layer1_class { position: absolute; z-index: 1; top: 100px; left: 0px; visibility: visible; }
+      .layer2_class { position: absolute; z-index: 2; top: 10px; left: 10px; visibility: hidden }
+    </style>
 
 </head>
-<body>
+<script>
+      function downLoad(){
+        if (document.all){
+            document.all["layer1"].style.visibility="hidden";
+            document.all["layer2"].style.visibility="visible";
+        } else if (document.getElementById){
+            node = document.getElementById("layer1").style.visibility='hidden';
+            node = document.getElementById("layer2").style.visibility='visible';
+        }
+      }
+    </script>
+<body onload="downLoad()">
+
+<div id="layer1" class="layer1_class">
+      <table width="100%">
+        <tr>
+          <td  class="loader"><strong><em><img style="margin-left: auto;margin-right: auto;display: block;" src="loading.gif"></em></strong> </p></td>
+        </tr>
+      </table>
+    </div>
+
+
 
 <div class="topnav">
-  <a class="active" href="#home">Turismo!</a>
+  <a class="active" href="#home">SiteDeBorla</a>
   <a href="/hoteis">Hoteis</a>
   <a href="/alojamentos">Alojamentos</a>
 </div>
@@ -173,30 +162,29 @@ select::-ms-expand {
 <div class='container'>
 <div class='col-sm-8'>
 <h2>Resultados</h2>
-  <input onkeyup="myFunction()" class='form-control' id='myInput' type='text' style='width: 50%;' placeholder='Search..'>
-  <br>
-  <select class="select" id="mySelect">
-        <option value="0" >Numero de Registro</option>
-        <option value="1" >Data registo</option>
-        <option value="2"> Nome do Alojamento </option>
-        <option value="3" >Imovél Posterior 1951</option>
-        <option value="4" >Data Abertura Público</option>
+<div class="direitinho">
+  <input onkeyup="myFunction()" class="form-control" id='myInput' type='text' style='width: 50%;' placeholder='Search..'>
+  <select class="form-control" style='width: 30%; margin-left: 10px;' id="mySelect">
+        <option value="0">Numero de Registo</option>
+        <option value="1">Data do Registo</option>
+        <option value="2">Nome do Alojamento</option>
+        <option value="3">Imovél Posterior 1951</option>
+        <option value="4">Data Abertura Público</option>
         <option value="5"> Modalidade</option>
-        <option value="6" >Número de camas</option>
-        <option value="7" >Número de Utentes</option>
+        <option value="6">Número de camas</option>
+        <option value="7">Número de Utentes</option>
         <option value="8"> Número de Quartos </option>
-        <option value="9" >Número de Beliches</option>
-        <option value="10" >Localização(Endereço)</option>
-        <option value="11">Localização(Codigo Postal) </option>
-        <option value="12" >Localidade</option>
-        <option value="13" >Freguesia</option>
-        <option value="14"> Concelho </option>
-        <option value="15"> Distrito </option>
+        <option value="9">Número de Beliches</option>
+        <option value="10">Localização(Endereço) </option>
+        <option value="11">Localização(Código de Postal)</option>
+        <option value="12">Localidade</option>
+        <option value="13">Freguesia</option>
+        <option value="14">Concelho</option>
+        <option value="15">Distrito </option>
 
-  </select>
-
-  
-  <br>
+    </select>
+    </div>
+    <br>
   <div style='overflow-x:scroll; overflow-y:scroll; height:450px;'>
   <table class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
     <thead>
@@ -213,7 +201,7 @@ select::-ms-expand {
       <th class="thcss">Número de Beliches</th>
       <th class="thcss">Localização(Endereço)</th>
       <th class="thcss">Localização(Código de Postal)</th>
-      <th class="thcss"> Localidade</th>
+      <th class="thcss">Localidade</th>
       <th class="thcss">Freguesia</th>
       <th class="thcss">Concelho</th>
       <th class="thcss">Distrito </th>
@@ -226,6 +214,7 @@ select::-ms-expand {
     </tbody>
   </table>
   </div> 
+
 </div>
 
 <div class="col-sm-4" >
@@ -239,7 +228,7 @@ select::-ms-expand {
       <th style="background-color: #2196F3;color:white;text-align:center;" >Lista</th>
       </tr>
     </thead>
-
+    </tbody>
   </table>
   </div> 
 </div>
@@ -250,6 +239,16 @@ select::-ms-expand {
 
 </body>
 
+<!-- <script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script> -->
 
 <script>
 function myFunction() {
@@ -270,11 +269,10 @@ function myFunction() {
     }       
   }
 }
-</script>
 
 
 
-<script>
+
 $(document).ready(function(){
   $("#myInputlista").on("keyup", function() {
     var value = $(this).val().toLowerCase();
@@ -284,6 +282,7 @@ $(document).ready(function(){
   });
 });
 </script>
+
 
 
 </html>
