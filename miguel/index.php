@@ -46,7 +46,7 @@
 
     </td>
     </tr> -->
-
+    <a href="#" id="down">Download</a>
     </table>
     <br>
     
@@ -57,18 +57,26 @@
     // else if(){
     var row_id;
     var linha;
-
+      
     $('#sourcetable').on('click', "tr", function(e){
     row_id = $("td:first a.ajaxCall", this).attr("rel");
-    window.console&&console.log(JSON.parse(row_id));
+    // window.console&&console.log(JSON.parse(row_id));
 
     var table = document.getElementById("replaceme");
     var row   = table.insertRow(-1);
     var cell1 = row.insertCell(-1);
     linha = JSON.parse(row_id);
-
-    cell1.innerHTML = '<table id="a"><tr><td class="wtf">'+linha['numero_registo']+'</td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></table><br><a href="#" id="down">Download</a>';
     
+    cell1.innerHTML = '<table id="a"><tr><td class="wtf">'+linha['numero_registo']+'</td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></table><br>';
+    window.console&&console.log(linha);
+        // var csv = linha['numero_registo'] + "\t" + linha['Data_registo'];
+        // var data = new Blob([csv]);
+        // var a = document.getElementById('aa');
+        // a.href = URL.createObjectURL(data);
+    //  var cont = $('#replaceme tr td').length-1;
+    //  document.getElementById("demo").innerHTML = "Tem " + cont + " Items na sua lista!";
+     
+    });
     $('#down').on('click', function(){
       function randomDate(start, end) {
 			var d= new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
@@ -76,13 +84,7 @@
 		}
 		  var excel = $JExcel.new("Calibri light 10 #333333");			// Default font
 			
-			// excel.set is the main function to generate content:
-			// 		We can use parameter notation excel.set(sheetValue,columnValue,rowValue,cellValue,styleValue) 
-			// 		Or object notation excel.set({sheet:sheetValue,column:columnValue,row:rowValue,value:cellValue,style:styleValue })
-			// 		null or 0 are used as default values for undefined entries		
-			
 			excel.set( {sheet:0,value:"Alojamentos" } );
-		    // excel.addSheet("Sheet 2");	
 			
 			var evenRow=excel.addStyle ( { 																	// Style for even ROWS
 				border: "none,none,none,thin #333333"});													// Borders are LEFT,RIGHT,TOP,BOTTOM. Check $JExcel.borderStyles for a list of valid border styles
@@ -109,29 +111,21 @@
 					format: "yyyy.mm.dd hh:mm:ss", 															// 		using DATE mask, Check $JExcel.formats for built-in formats or provide your own 
 					font: "#00AA00"}); 																		// 		in color green
 			
-																					
-				excel.set(0,0,1,linha['numero_registo']);	
-        excel.set(0,1,1,linha['Data_registo']);
-        excel.set(0,2,1,linha['Nome_Alojamento']);
-        excel.set(0,3,1,linha['Imovel_Posterior_1951']);															
-				var d=randomDate(initDate,endDate);															
-				excel.set(0,1,d.toLocaleString());														
-				excel.set(0,2,$JExcel.toExcelLocalTime(d));											
-				excel.set(0,3,$JExcel.toExcelLocalTime(d),dateStyle);										
-				excel.set(0,4,"Some other text");															
-			
+				for(var i=1; i<$('#replaceme table').length+1;i++){																
+          excel.set(0,0,i,linha['numero_registo']);	
+          excel.set(0,1,i,linha['Data_registo']);
+          excel.set(0,2,i,linha['Nome_Alojamento']);
+          excel.set(0,3,i,linha['Imovel_Posterior_1951']);															
+          var d=randomDate(initDate,endDate);															
+          excel.set(0,1,d.toLocaleString());														
+          excel.set(0,2,$JExcel.toExcelLocalTime(d));											
+          excel.set(0,3,$JExcel.toExcelLocalTime(d),dateStyle);										
+          excel.set(0,4,"Some other text");															
+        }	
 					
 		    excel.generate("ALOJAMENTOS.xlsx");
 			
 		});
-        // var csv = linha['numero_registo'] + "\t" + linha['Data_registo'];
-        // var data = new Blob([csv]);
-        // var a = document.getElementById('aa');
-        // a.href = URL.createObjectURL(data);
-    //  var cont = $('#replaceme tr td').length-1;
-    //  document.getElementById("demo").innerHTML = "Tem " + cont + " Items na sua lista!";
-     
-    });
   
 
   // } 
