@@ -82,8 +82,6 @@
   background-color: #2196F3;
   color:white;
   text-align:justify;
-  border-right:1px solid white;
-  padding:15px;
 }
 .container{
   width: 100%;
@@ -94,20 +92,9 @@
  flex-wrap: wrap;
 }
 
-/* #closebtn {
-    margin-left: 15px;
-    color: black;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
 
-#closebtn:hover {
-    color: red;
-} */
+
+
 </style>
 
 </head>
@@ -120,7 +107,7 @@
 </div>
 
 <div class='container'>
-<div class='col-sm-8'>
+<div>
 <h2>Resultados</h2>
 <div class="direitinho">
   <input onkeyup="myFunction()" class="form-control" id='myInput' type='text' style='width: 50%;' placeholder='Search..'>
@@ -147,8 +134,8 @@
     <br>
   <div style='overflow-x:scroll; overflow-y:scroll; height:450px;'>
   <table class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
-    <thead>
-      <tr>
+    <thead >
+      <tr >
       <th class="thcss">Numero de Registo</th>
       <th class="thcss">Data do Registo</th>
       <th class="thcss">Nome do Alojamento</th>
@@ -158,7 +145,7 @@
       <th class="thcss">Número de camas</th>
       <th class="thcss">Número de Utentes</th>
       <th class="thcss">Número de Quartos</th>
-      <th class="thcss">Número de Beliches</th>
+      <th class="thcss" >Número de Beliches</th>
       <th class="thcss">Localização(Endereço)</th>
       <th class="thcss">Localização(Código de Postal)</th>
       <th class="thcss">Localidade</th>
@@ -176,17 +163,39 @@
   </div> 
 </div>
 
-<div class="col-sm-4" >
+
+
+<div>
 <h2>Lista de Exportacao</h2>
 <input class="form-control" id="myInputlista" type="text" style="width: 50%;" placeholder="Search..">
-  <br>
-  <div style="overflow-x:scroll; overflow-y:scroll; height:450px;">
-  <table class="table table-bordered table-striped">
+<br>
+  <div style='overflow-x:scroll; overflow-y:scroll; height:450px;'>
+  <table class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
     <thead >
-      <tr>
-      <th style="background-color: #2196F3;color:white;text-align:center;" >Lista</th>
+      <tr >
+      <th class="thcss">Numero de Registo</th>
+      <th class="thcss">Data do Registo</th>
+      <th class="thcss">Nome do Alojamento</th>
+      <th class="thcss">Imovél Posterior 1951</th>
+      <th class="thcss">Data Abertura Público</th>
+      <th class="thcss">Modalidade</th>
+      <th class="thcss">Número de camas</th>
+      <th class="thcss">Número de Utentes</th>
+      <th class="thcss">Número de Quartos</th>
+      <th class="thcss" >Número de Beliches</th>
+      <th class="thcss">Localização(Endereço)</th>
+      <th class="thcss">Localização(Código de Postal)</th>
+      <th class="thcss">Localidade</th>
+      <th class="thcss">Freguesia</th>
+      <th class="thcss">Concelho</th>
+      <th class="thcss">Distrito </th>
       </tr>
     </thead>
+    <tbody>
+    <tr>
+
+
+    </tr>
     </tbody>
   </table>
   </div> 
@@ -245,8 +254,8 @@ $(document).ready(function(){
 
 
 
+
+
+
+
 </html>
-
-
-
-/* por tudo direitinho na thea */
