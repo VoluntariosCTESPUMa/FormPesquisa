@@ -89,6 +89,10 @@
   width: 100%;
   height: 100%;
 }
+.direitinho {
+ display: flex;
+ flex-wrap: wrap;
+}
 
 /* #closebtn {
     margin-left: 15px;
@@ -118,13 +122,29 @@
 <div class='container'>
 <div class='col-sm-8'>
 <h2>Resultados</h2>
-  <input onkeyup="myFunction()" class='form-control' id='myInput' type='text' style='width: 50%;' placeholder='Search..'>
-  <select id="mySelect">
-        <option value="0" >Numero de Registro</option>
-        <option value="1" >data registo</option>
-        <option value="2"> Nome do Alojamento </option>
+<div class="direitinho">
+  <input onkeyup="myFunction()" class="form-control" id='myInput' type='text' style='width: 50%;' placeholder='Search..'>
+  <select class="form-control" style='width: 30%; margin-left: 10px;' id="mySelect">
+        <option value="0" >Numero de Registo</option>
+        <option value="1" >Data do Registo</option>
+        <option value="2">Nome do Alojamento</option>
+        <option value="3" >Imovél Posterior 1951</option>
+        <option value="4" >Data Abertura Público</option>
+        <option value="5"> Modalidade</option>
+        <option value="6" >Número de camas</option>
+        <option value="7" >Número de Utentes</option>
+        <option value="8"> Número de Quartos </option>
+        <option value="9" >Número de Beliches</option>
+        <option value="10">Localização(Endereço) </option>
+        <option value="11" >Localização(Código de Postal)</option>
+        <option value="12" >Localidade</option>
+        <option value="13">Freguesia</option>
+        <option value="14" >Concelho</option>
+        <option value="15" >Distrito </option>
+
     </select>
-  <br> <br><br><br>
+    </div>
+    <br>
   <div style='overflow-x:scroll; overflow-y:scroll; height:450px;'>
   <table class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
     <thead>
@@ -141,7 +161,7 @@
       <th class="thcss">Número de Beliches</th>
       <th class="thcss">Localização(Endereço)</th>
       <th class="thcss">Localização(Código de Postal)</th>
-      <th class="thcss"> Localidade</th>
+      <th class="thcss">Localidade</th>
       <th class="thcss">Freguesia</th>
       <th class="thcss">Concelho</th>
       <th class="thcss">Distrito </th>
@@ -229,4 +249,4 @@ $(document).ready(function(){
 
 
 
-/* por tudo direitinho na thead, e colocar o filtro a frente da pesquisa */
+/* por tudo direitinho na thea */
