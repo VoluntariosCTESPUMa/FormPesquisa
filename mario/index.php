@@ -68,14 +68,8 @@
   //  window.console&&console.log($('#replaceme table').length)
     linha = JSON.parse(row_id);
 //window.console&&console.log(linha);
-    if($('#replaceme table').length==0){
    
-    arr.push(linha);
-    }
-    else{
       arr.push(linha);
-    }
-    window.console&&console.log(arr[0]['Data_registo']);
     cell1.innerHTML = '<table id="a"><tr><td class="wtf">'+linha['numero_registo']+'</td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></table><br>';
    // window.console&&console.log(linha);
         // var csv = linha['numero_registo'] + "\t" + linha['Data_registo'];
@@ -86,11 +80,15 @@
     //  document.getElementById("demo").innerHTML = "Tem " + cont + " Items na sua lista!";
      
     });
-    $('#down').on('click', function(){
+    $('#down').click({arr:arr},getarray); //criamos um evento para quando clicarmos no botao download,queira trazer o array como parametro
+    function getarray(event){
+       var arr= event.data.arr; //fazemos a declaracao da variavel local
+
       function randomDate(start, end) {
 			var d= new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 			return d;
-		}
+    }
+    
 		  var excel = $JExcel.new("Calibri light 10 #333333");			// Default font
 			
 			excel.set( {sheet:0,value:"Alojamentos" } );
@@ -120,21 +118,25 @@
 					format: "yyyy.mm.dd hh:mm:ss", 															// 		using DATE mask, Check $JExcel.formats for built-in formats or provide your own 
 					font: "#00AA00"}); 																		// 		in color green
       
-				for(var i=1; i<$('#replaceme table').length+1;i++){																
-          excel.set(0,0,i,arr[i]['numero_registo']);	
-          excel.set(0,1,i,arr[i]['Data_registo']);
-          excel.set(0,2,i,arr[i]['Nome_Alojamento']);
-          excel.set(0,3,i,arr[i]['Imovel_Posterior_1951']);															
+        
+        $.each(arr, function (index, value) {
+				//para cada item no array
+          excel.set(0,0,index+1,arr[index]['numero_registo']);	
+          excel.set(0,1,index+1,arr[index]['Data_registo']);
+          excel.set(0,2,index+1,arr[index]['Nome_Alojamento']);
+          excel.set(0,3,index+1,arr[index]['Imovel_Posterior_1951']);															
           var d=randomDate(initDate,endDate);															
           excel.set(0,1,d.toLocaleString());														
           excel.set(0,2,$JExcel.toExcelLocalTime(d));											
           excel.set(0,3,$JExcel.toExcelLocalTime(d),dateStyle);										
-          excel.set(0,4,"Some other text");															
-        }	
+          excel.set(0,4,"Some other text");			
+         								
+        })	
 					
-		    excel.generate("ALOJAMENTOS.xlsx");
+        excel.generate("ALOJAMENTOS.xlsx");
+      
 			
-		});
+		};
   
 
   // } 
