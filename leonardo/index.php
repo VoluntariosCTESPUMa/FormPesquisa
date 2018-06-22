@@ -369,7 +369,7 @@ $(document).ready(function(){
     // else if(){
     var row_id;
     var linha;
-    var tentar = 0;
+
 
     $('#sourcetable').on('click', "tr", function(e){
     row_id = $("td:first a.ajaxCall", this).attr("rel");
@@ -381,13 +381,10 @@ $(document).ready(function(){
     linha = JSON.parse(row_id);
   
     
-    if(tentar==0){
+
       cell1.innerHTML ='<div style="overflow-x:scroll; overflow-y:scroll; height:450px;"><table id="replaceme" class="table table-bordered table-striped" style="border:1px solid #2196F3;"><thead><tr><th class="thcss">Numero de Registo</th><th class="thcss">Data do Registo</th><th class="thcss">Nome do Alojamento</th><th class="thcss">Imovél Posterior 1951</th><th class="thcss">Data Abertura Público</th><th class="thcss">Modalidade</th><th class="thcss">Número de camas</th><th class="thcss">Número de Utentes</th><th class="thcss">Número de Quartos</th><th class="thcss">Número de Beliches</th><th class="thcss">Localização(Endereço)</th><th class="thcss">Localização(Código de Postal)</th><th class="thcss">Localidade</th><th class="thcss">Freguesia</th><th class="thcss">Concelho</th><th class="thcss">Distrito </th></tr></thead><tbody><tr><td>'+linha['numero_registo']+'</td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></tbody></table></div></div>'
-      tentar++;
-    }else if(tentar==1){
-      cell1.innerHTML ='<tbody><tr><td>numero registo -> '+linha['numero_registo']+'</td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></tbody>'
-    }
-    
+
+
     window.console&&console.log(linha);
         // var csv = linha['numero_registo'] + "\t" + linha['Data_registo'];
         // var data = new Blob([csv]);
