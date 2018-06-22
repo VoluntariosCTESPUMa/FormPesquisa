@@ -231,7 +231,7 @@
 <h2>Lista de Exportacao</h2>
 <!-- <input class="form-control" id="myInputlista" type="text" style="width: 50%;" placeholder="Search..">
 <br> -->
-  <!-- <div style='overflow-x:scroll; overflow-y:scroll; height:450px;'>
+  <div style='overflow-x:scroll; overflow-y:scroll; height:450px;'>
   <table id='replaceme' class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
   <thead >
       <tr >
@@ -253,17 +253,17 @@
       <th class='thcss'>Distrito </th>
       </tr>
     </thead>
-    <tbody>
-    <tr><td>'+linha['numero_registo']+'</td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr>
+    <tbody id="replaceme">
+    
     </tbody>
   </table>
   </div> 
-</div> -->
+</div>
 
 
 
-<table >
-<!-- <thead >
+<!-- <table >
+<thead >
       <tr >
       <th class='thcss'>Numero de Registo</th>
       <th class='thcss'>Data do Registo</th>
@@ -282,14 +282,14 @@
       <th class='thcss'>Concelho</th>
       <th class='thcss'>Distrito </th>
       </tr>
-    </thead> -->
-    <!-- <tr id="count">
-    <td id="demo"> -->
+    </thead>
+    <tr id="count">
+    <td id="demo">
     <tbody id="replaceme">
 
 </tbody>
-    <!-- </td>
-    </tr> -->
+    </td>
+    </tr>
     <a href="#" id="down">Download</a>
     </table>
     <br>
@@ -297,7 +297,7 @@
    
   </div>
 </div>
-</div> 
+</div>  -->
 
 
 </body>
@@ -362,15 +362,14 @@ $(document).ready(function(){
 
 
 
-     <script>
+         <script>
     // if( $('#replaceme td').length == 0) {
     //   document.getElementById("replaceme").innerHTML = "Não tem nada dentro da sua lista de exportação!"
     // }
     // else if(){
     var row_id;
     var linha;
-    var tentar = 0;
-
+    var arr=[];
     $('#sourcetable').on('click', "tr", function(e){
     row_id = $("td:first a.ajaxCall", this).attr("rel");
     // window.console&&console.log(JSON.parse(row_id));
@@ -378,17 +377,13 @@ $(document).ready(function(){
     var table = document.getElementById("replaceme");
     var row   = table.insertRow(-1);
     var cell1 = row.insertCell(-1);
+  //  window.console&&console.log($('#replaceme table').length)
     linha = JSON.parse(row_id);
-  
-    
-    if(tentar==0){
-      cell1.innerHTML ='<div style="overflow-x:scroll; overflow-y:scroll; height:450px;"><table id="replaceme" class="table table-bordered table-striped" style="border:1px solid #2196F3;"><thead><tr><th class="thcss">Numero de Registo</th><th class="thcss">Data do Registo</th><th class="thcss">Nome do Alojamento</th><th class="thcss">Imovél Posterior 1951</th><th class="thcss">Data Abertura Público</th><th class="thcss">Modalidade</th><th class="thcss">Número de camas</th><th class="thcss">Número de Utentes</th><th class="thcss">Número de Quartos</th><th class="thcss">Número de Beliches</th><th class="thcss">Localização(Endereço)</th><th class="thcss">Localização(Código de Postal)</th><th class="thcss">Localidade</th><th class="thcss">Freguesia</th><th class="thcss">Concelho</th><th class="thcss">Distrito </th></tr></thead><tbody><tr><td>'+linha['numero_registo']+'</td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></tbody></table></div></div>'
-      tentar++;
-    }else if(tentar==1){
-      cell1.innerHTML ='<tbody><tr><td>numero registo -> '+linha['numero_registo']+'</td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></tbody>'
-    }
-    
-    window.console&&console.log(linha);
+  //window.console&&console.log(linha);
+   
+      arr.push(linha);
+    cell1.innerHTML = '<tr><td>'+linha['numero_registo']+'</td><br><td>'+linha['Data_registo']+'</td><br><td>'+linha['Nome_Alojamento']+'</td><br><td>'+linha['Imovel_Posterior_1951']+'</td><br></tr>';
+   // window.console&&console.log(linha);
         // var csv = linha['numero_registo'] + "\t" + linha['Data_registo'];
         // var data = new Blob([csv]);
         // var a = document.getElementById('aa');
@@ -397,11 +392,15 @@ $(document).ready(function(){
     //  document.getElementById("demo").innerHTML = "Tem " + cont + " Items na sua lista!";
      
     });
-    $('#down').on('click', function(){
+    $('#down').click({arr:arr},getarray); //criamos um evento para quando clicarmos no botao download,queira trazer o array como parametro
+    function getarray(event){
+       var arr= event.data.arr; //fazemos a declaracao da variavel local
+
       function randomDate(start, end) {
 			var d= new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 			return d;
-		}
+    }
+    
 		  var excel = $JExcel.new("Calibri light 10 #333333");			// Default font
 			
 			excel.set( {sheet:0,value:"Alojamentos" } );
@@ -430,22 +429,26 @@ $(document).ready(function(){
 					align: "R",																				// 		aligned to the RIGHT
 					format: "yyyy.mm.dd hh:mm:ss", 															// 		using DATE mask, Check $JExcel.formats for built-in formats or provide your own 
 					font: "#00AA00"}); 																		// 		in color green
-			
-				for(var i=1; i<$('#replaceme table').length+1;i++){																
-          excel.set(0,0,i,linha['numero_registo']);	
-          excel.set(0,1,i,linha['Data_registo']);
-          excel.set(0,2,i,linha['Nome_Alojamento']);
-          excel.set(0,3,i,linha['Imovel_Posterior_1951']);															
+      
+        
+        $.each(arr, function (index, value) {
+				//para cada item no array
+          excel.set(0,0,index+1,arr[index]['numero_registo']);	
+          excel.set(0,1,index+1,arr[index]['Data_registo']);
+          excel.set(0,2,index+1,arr[index]['Nome_Alojamento']);
+          excel.set(0,3,index+1,arr[index]['Imovel_Posterior_1951']);															
           var d=randomDate(initDate,endDate);															
           excel.set(0,1,d.toLocaleString());														
           excel.set(0,2,$JExcel.toExcelLocalTime(d));											
           excel.set(0,3,$JExcel.toExcelLocalTime(d),dateStyle);										
-          excel.set(0,4,"Some other text");															
-        }	
+          excel.set(0,4,"Some other text");			
+         								
+        })	
 					
-		    excel.generate("ALOJAMENTOS.xlsx");
+        excel.generate("ALOJAMENTOS.xlsx");
+      
 			
-		});
+		};
   
 
   // } 
