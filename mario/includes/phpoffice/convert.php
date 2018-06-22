@@ -14,7 +14,6 @@ use PhpOffice\PhpSpreadsheet\Writer\Csv;
         else{   
         require 'vendor/autoload.php';
     $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($path);
-
     $writer = new \PhpOffice\PhpSpreadsheet\Writer\Csv($spreadsheet);
     $writer->setUseBOM(true);
     $writer->save('./../../../mysql/data/'.$name.'.csv');

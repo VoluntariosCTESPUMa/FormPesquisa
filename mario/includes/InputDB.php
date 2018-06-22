@@ -1,6 +1,5 @@
 <?php
 
-
 function putDB($name){
 include './includes/config.php'; //incluimos o ficheiro da ligacao
 $con = getdb();//os dados desta serao retornados desta funcao
