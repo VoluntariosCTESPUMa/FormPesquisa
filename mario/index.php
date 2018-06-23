@@ -58,7 +58,7 @@
 
     </td>
     </tr> -->
-    <a href="#" id="down">Download</a>
+    <a href="#" style="display:none;" id="down">Download</a>
     </table>
     <br>
     
@@ -97,7 +97,11 @@
           }
         }
         trclick(thistr);
+        if(arr.length==0){
+       var a= document.getElementById('down')
+       a.style.display="none";
         }
+      }
         else
         return "";
       }
@@ -133,7 +137,8 @@ function trclick(row){
         // a.href = URL.createObjectURL(data);
     //  var cont = $('#replaceme tr td').length-1;
     //  document.getElementById("demo").innerHTML = "Tem " + cont + " Items na sua lista!";
-     
+    var a= document.getElementById('down')
+       a.style.display="block";
     });
     $('#down').click({arr:arr},getarray); //criamos um evento para quando clicarmos no botao download,queira trazer o array como parametro
     function getarray(event){
