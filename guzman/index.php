@@ -8,45 +8,243 @@
 <script type="text/javascript" src="./includes/jszip.js"></script>
 <script type="text/javascript" src="./includes/FileSaver.js"></script>
 <script type="text/javascript" src="./includes/myexcel.js"></script>
+<title>Turismo</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+  <style>
+  .loader {
+  position: fixed;
+  background-color: black;
+  opacity: 1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 0;
+  margin-top: 8px;
+  padding-left: 2rem;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+.thcss{
+  background-color: #2196F3;
+  color:white;
+  text-align:justify;
+  border-right:1px solid white;
+  padding:15px;
+  border:20px;
+}
+.container{
+  width: 100%;
+  height: 100%;
+}
+.direitinho {
+ display: flex;
+ flex-wrap: wrap;
+}
+
+/* #closebtn {
+    margin-left: 15px;
+    color: black;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#closebtn:hover {
+    color: red;
+} */
+
+
+/* loading screen */
+
+</style>
+<!-- loading -->
+<style media="screen" type="text/css">
+      .layer1_class { position: absolute; z-index: 1; top: 100px; left: 0px; visibility: visible; }
+      .layer2_class { position: absolute; z-index: 2; top: 10px; left: 10px; visibility: hidden }
+    </style>
+
+
 
 </head>
 <body>
 
+<style>
+.direitinho {
+ display: flex;
+ flex-wrap: wrap;
+}
+</style>
 <div class="topnav">
   <a class="active" href="#home">SiteDeBorla</a>
   <a href="/hoteis">Hoteis</a>
   <a href="/alojamentos">Alojamentos</a>
 </div>
+<div class='container'>
+<div class='col-sm-8'>
+<h2>Resultados</h2>
+<div class="direitinho">
+  <input onkeyup="myFunction()" class="form-control" id='myInput' type='text' style='width: 50%;' placeholder='Search..'>
+  <select class="form-control" style='width: 30%; margin-left: 10px;' id="mySelect">
+        <option value="0">Numero de Registo</option>
+        <option value="1">Data do Registo</option>
+        <option value="2">Nome do Alojamento</option>
+        <option value="3">Imovél Posterior 1951</option>
+        <option value="4">Data Abertura Público</option>
+        <option value="5"> Modalidade</option>
+        <option value="6">Número de camas</option>
+        <option value="7">Número de Utentes</option>
+        <option value="8"> Número de Quartos </option>
+        <option value="9">Número de Beliches</option>
+        <option value="10">Localização(Endereço) </option>
+        <option value="11">Localização(Código de Postal)</option>
+        <option value="12">Localidade</option>
+        <option value="13">Freguesia</option>
+        <option value="14">Concelho</option>
+        <option value="15">Distrito </option>
 
-<div class="row" style="margin:2rem;">
-<div class="search-container" style="margin-left:0.5rem;">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Pesquisar..." name="search">
-      <select placeholder="Escolha um filtro...">
-        <option disabled selected style="display:none;">Escolha um filtro...</option>
-        <option><?php ?></option>
-      </select>
-      <button type="submit">Pesquisar <i class="fa fa-search"></i></button>
-    </form>
-  </div>
-  <div class="column" >
-  <h4>Resultados</h4>
-  <div style="overflow-x:scroll; overflow-y:scroll; height:450px;">
-  <table> 
-  <meta charset="utf-8"/>
-  <?php include './includes/database.php';?>
-</table>
+    </select>
+    </div>
+    <br>
+  <div style='overflow-x:scroll; overflow-y:scroll; height:450px;'>
+  <table id='sourcetable' class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
+    <thead>
+      <tr>
+      <th class="thcss">Numero de Registo</th>
+      <th class="thcss">Data do Registo</th>
+      <th class="thcss">Nome do Alojamento</th>
+      <th class="thcss">Imovél Posterior 1951</th>
+      <th class="thcss">Data Abertura Público</th>
+      <th class="thcss">Modalidade</th>
+      <th class="thcss">Número de camas</th>
+      <th class="thcss">Número de Utentes</th>
+      <th class="thcss">Número de Quartos</th>
+      <th class="thcss">Número de Beliches</th>
+      <th class="thcss">Localização(Endereço)</th>
+      <th class="thcss">Localização(Código de Postal)</th>
+      <th class="thcss">Localidade</th>
+      <th class="thcss">Freguesia</th>
+      <th class="thcss">Concelho</th>
+      <th class="thcss">Distrito </th>
+      </tr>
+    </thead>
+    <tbody id='myTable'>
+    <tr>
+    <?php include './includes/database.php';?>
+    </tr>
+    </tbody>
+  </table>
+  </div> 
+
 </div>
-  </div>
+
+<script>
+
+function myFunction() {
+  var x = document.getElementById("mySelect").selectedIndex;
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[x];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+</script>
+
   <div class='column'>
     <h4>Lista de Exportação</h4>
+    <a href="#" id="down">Download</a>
     <table id="replaceme">
     <!-- <tr id="count">
     <td id="demo">
 
     </td>
     </tr> -->
-    <a href="#" id="down">Download</a>
+    
     </table>
     <br>
     
@@ -165,7 +363,10 @@ function trclick(row){
   
 
   // } 
-    
+
+  
+
+
 </script>
   </div>
 </div>
@@ -180,8 +381,5 @@ function trclick(row){
   border-style:none;
 }
 </style>
-
-
-
 </body>
 </html>
