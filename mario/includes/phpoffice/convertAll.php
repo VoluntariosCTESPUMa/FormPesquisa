@@ -10,9 +10,9 @@ use PhpOffice\PhpSpreadsheet\Writer\Csv;
         $path=realpath(__DIR__ . '/../../aloj.xlsx');
         $path2=realpath(__DIR__ . '/../../hotel.xlsx');
             if(!(file_exists ($path)))
-            return "FILENOTFOUND";
+            return "FILENOTFOUND1";
             if(!(file_exists ($path2)))
-            return "FILENOTFOUND";
+            return "FILENOTFOUND2";
         else{   
         require 'vendor/autoload.php';
     $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($path);

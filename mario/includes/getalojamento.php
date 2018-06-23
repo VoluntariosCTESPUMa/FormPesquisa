@@ -52,14 +52,18 @@ else {
 $conn->close();
 ?>
 
-
-
-
-
-
 <style>
-    table#sourcetable tbody tr {
-  background-color : #ffccff;
+.thcss{
+  background-color: #2196F3;
+  color:white;
+  text-align:justify;
+  border-right:2px solid black;
+  padding:15px;
+  border:20px;
+}
+
+table#sourcetable tbody tr {
+  background-color : #fff;
   border: 1px solid grey;
 }
 /* #sourcetable tr:nth-child(even) {
@@ -69,5 +73,4 @@ $conn->close();
 table#sourcetable tbody tr {
   cursor : pointer;
 }
-
     </style>
