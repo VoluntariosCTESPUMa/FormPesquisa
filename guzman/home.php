@@ -61,14 +61,23 @@
     <p>
         Aqui podera ir para a secção dos hoteis.
     </p>
-   <a  href="/hoteis" class="decora" >Click aqui</a> 
+    <br>
+    <br>
+    <button class="btn success" >
+        <a  href="/hoteis" class="decora" >Click aqui</a> 
+    </button>
+   
 </div>
 
 <div class="column2">
 <p>
         Aqui podera ir para a secção dos alojamentos.
     </p>
-    <a href="./index.php" class="decora" >Click aqui</a>
+    <br>
+    <br>
+    <button class="btn success">
+        <a href="./index.php" class="decora" >Click aqui</a>
+    </button>
 </div>
 
 </div>

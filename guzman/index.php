@@ -54,9 +54,9 @@
   
 
   
-  <div class='column'>
+  <div class='column' style=" overflow-y:scroll;">
     <h4 style="text-align:center;background-color:#2196F3;color:white;height:60px;" ><br>Lista de Exportação <i class="fa fa-bars"></i></h4>
-    <table id="replaceme">
+    <table id="replaceme"  >
     <!-- <tr id="count">
     <td id="demo">
 
