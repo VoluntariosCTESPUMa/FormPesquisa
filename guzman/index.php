@@ -44,7 +44,7 @@
     </div></div>
   <div class="column" >
   <h4 style="text-align:center;background-color:#2196F3;color:white;height:60px;" ><br>Resultados <i class="fa fa-search"></i></h4>
-  <div style="overflow-x:scroll; overflow-y:scroll; height:350px;">
+  <div style="overflow-x:scroll; overflow-y:scroll; height:380px;">
   <table > 
   <meta charset="utf-8"/>
   <?php include './includes/database.php';?>
@@ -115,7 +115,7 @@
   position: fixed;
   bottom: 0;
   left:0;
-  height:70px;
+  height:50px;
 
 }
 
@@ -132,7 +132,7 @@
   position: fixed;
   bottom: 0;
   right:0;
-  height:70px;
+  height:50px;
   width: 50%;
 }
 
