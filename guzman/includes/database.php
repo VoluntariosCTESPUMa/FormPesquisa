@@ -52,11 +52,6 @@ else {
 $conn->close();
 ?>
 
-
-
-
-
-
 <style>
 .thcss{
   background-color: #2196F3;

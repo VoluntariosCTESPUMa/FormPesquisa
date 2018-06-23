@@ -77,8 +77,7 @@
 
     <button class="collapsible">Turismo da Madeira</button>
 <div class="content">
-
-  <p style="text-align:center">A pedido do turismo da madeira , foi desenvolvida a seguinte ferramenta pelos alunos da UMa </p>
+  <p style="text-align:left">A pedido do turismo da madeira , foi desenvolvida a seguinte ferramenta pelos alunos da UMa do curso TPSI </p>
 </div>
 <style>
 
