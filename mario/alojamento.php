@@ -151,34 +151,34 @@
 
 function removeall(){
   while(arr.length > 0) {
-    arr.pop();
+    arr.pop();//vai retirando 1 a 1 elemento do array
 }
   d = document.getElementById("replaceme");
   window.console&&console.log(d);
-  d.innerHTML="";
+  d.innerHTML=""; //esvaziamos a tabela
   var a= document.getElementById('down')
-       a.style.display="none";
+       a.style.display="none"; // e escondemos o botao de download e remover
     a= document.getElementById('rem')
        a.style.display="none";
 
 }
 function addall(){
-      var linha={};
-      var t = document.getElementById("sourcetable");
-      d = t.getElementsByTagName("tr");
-     var cabeca=["numero_registo","Data_registo","Nome_Alojamento","Imovel_Posterior_1951","Data_Abertura_Publico","Modalidade","numero_camas","Numero_Utentes","numero_quartos","numero_beliches","Endereco","codigo_postal","Localidade","Freguesia","Concelho","Distrito","NUTT_II","Titular_da_Exploracao","Titular_Qualidade","Contribuinte","Tipo_Titular","Pais_Titular","Telefone","Fax","Telemovel","Email"]; 
+      var linha={}; //criamos uma variavel local
+      var t = document.getElementById("sourcetable");//pegamos no elemento da primeira tabela
+      d = t.getElementsByTagName("tr");//pegamos na TR
+     var cabeca=["numero_registo","Data_registo","Nome_Alojamento","Imovel_Posterior_1951","Data_Abertura_Publico","Modalidade","numero_camas","Numero_Utentes","numero_quartos","numero_beliches","Endereco","codigo_postal","Localidade","Freguesia","Concelho","Distrito","NUTT_II","Titular_da_Exploracao","Titular_Qualidade","Contribuinte","Tipo_Titular","Pais_Titular","Telefone","Fax","Telemovel","Email"];  //defenimos as propriedades do objeto
       for(var i=1;i!=d.length;i++){
-        linha={};
-          var temp=d[i].innerText.split("\t");
+        linha={};//esvaziamos o objeto
+          var temp=d[i].innerText.split("\t"); //agarramos nas trs das linhas seguintes
         for(var k=0;k!=26;k++){
-     linha[cabeca[k]]=temp[k];
+     linha[cabeca[k]]=temp[k];//adicionamos a cada propriedade a sua entrada
     }
-    arr.push(linha)
-    var table = document.getElementById("replaceme");
+    arr.push(linha) // e damos push
+    var table = document.getElementById("replaceme");//inserimos esta nova entrada na lista do outro lado
     var row   = table.insertRow(-1);
     var cell1 = row.insertCell(-1);
     cell1.innerHTML = '<table id="a"><tr><td onclick="tdclick(event,$(this))"><a style="color:red;" href="#" title="Clique aqui para remover esta entrada">'+linha['numero_registo']+'</a></td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></table><br>';
-       var a= document.getElementById('down')
+       var a= document.getElementById('down') //e mostramos os botoes de download e remover
        a.style.display="block";
        a= document.getElementById('rem')
        a.style.display="block";
@@ -231,14 +231,14 @@ function myFunction() {
       function tdclick(e,thistr){
        
         if(!(e.target.innerText=="undefined")){
-        var a=e.target.innerText;
+        var a=e.target.innerText;//agarra o id do produto presente na primeira TD
         for(var i=0;i!=$('#replaceme table').length;i++){
           if(a==arr[i]['numero_registo']){
-          arr.splice(i,1)
-          break;
+          arr.splice(i,1) //quando encontra no array,dá splice
+          break;//saimos do for
           }
         }
-        trclick(thistr);
+        trclick(thistr);//executamos a funcao que irá retirar aquela tr da tabela
         if(arr.length==0){
        var a= document.getElementById('down')
        a.style.display="none";
@@ -252,6 +252,7 @@ function myFunction() {
 
 function trclick(row){
   row.parent().parent().parent().parent().remove();
+  //usando o $(this) como segundo parametro da outra funcao,aqui removemos o TR
 }
   
 
