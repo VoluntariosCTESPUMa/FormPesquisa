@@ -53,25 +53,31 @@
   </div>
   
 
+
+  <div class='column' >
+  <h4 style="text-align:center;background-color:#2196F3;color:white;height:60px;" ><br>Lista de Exportação <i class="fa fa-bars"></i></h4>
+  <a href="#" style="display:none;" id="down">Importar lista <i class="glyphicon glyphicon-file"></i> </a>
+  <br>
+  <div class="column" style="overflow-y:scroll; width:100%;" >
+
   
-  <div class='column' style=" overflow-y:scroll;">
-    <h4 style="text-align:center;background-color:#2196F3;color:white;height:60px;" ><br>Lista de Exportação <i class="fa fa-bars"></i></h4>
-    <table id="replaceme"  >
+    <table id="replaceme" >
     <!-- <tr id="count">
     <td id="demo">
 
     </td>
     </tr> -->
    
-    <a href="#" style="display:none;" id="down">Importar lista <i class="glyphicon glyphicon-file"></i> </a>
+   
     <br>
     
     </table>
+    </div>
     <br>
 
     <button class="collapsible">Turismo da Madeira</button>
 <div class="content">
-<br>
+
   <p style="text-align:center">A pedido do turismo da madeira , foi desenvolvida a seguinte ferramenta pelos alunos da UMa </p>
 </div>
 <style>
@@ -115,7 +121,7 @@
   position: fixed;
   bottom: 0;
   left:0;
-  height:50px;
+  height:55px;
 
 }
 
@@ -132,7 +138,7 @@
   position: fixed;
   bottom: 0;
   right:0;
-  height:50px;
+  height:55px;
   width: 50%;
 }
 
