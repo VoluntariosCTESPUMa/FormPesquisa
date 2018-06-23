@@ -11,7 +11,7 @@
   <style>
   .loader {
   position: fixed;
-  background-color: #FFF;
+  background-color: black;
   opacity: 1;
   height: 100%;
   width: 100%;
@@ -124,12 +124,14 @@
 /* loading screen */
 
 </style>
+<!-- loading -->
 <style media="screen" type="text/css">
       .layer1_class { position: absolute; z-index: 1; top: 100px; left: 0px; visibility: visible; }
       .layer2_class { position: absolute; z-index: 2; top: 10px; left: 10px; visibility: hidden }
     </style>
 
 </head>
+
 <script>
       function downLoad(){
         if (document.all){
@@ -146,11 +148,11 @@
 <div id="layer1" class="layer1_class">
       <table width="100%">
         <tr>
-          <td  class="loader"><strong><em><img style="margin-left: auto;margin-right: auto;display: block;" src="loading.gif"></em></strong> </p></td>
+          <td  class="loader"><strong><em><img style="margin-left: auto;margin-right: auto;display: block;" src="loading3.gif"> <p style="color:white"> Espere , a carregar a conversao </p> </em></strong></td>
         </tr>
       </table>
     </div>
-
+<!-- loading end -->
 
 
 <div class="topnav">
@@ -158,7 +160,6 @@
   <a href="/hoteis">Hoteis</a>
   <a href="/alojamentos">Alojamentos</a>
 </div>
-
 <div class='container'>
 <div class='col-sm-8'>
 <h2>Resultados</h2>
