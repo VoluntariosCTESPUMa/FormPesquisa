@@ -73,7 +73,7 @@
       }
 
 function trclick(row){
-  row.parent().remove();
+  row.parent().parent().parent().parent().remove();
 }
   
 
