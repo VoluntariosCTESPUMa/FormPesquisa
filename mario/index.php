@@ -48,9 +48,11 @@
   <meta charset="utf-8"/>
   <?php include './includes/database.php';?>
 </table>
+
 </div>
   </div>
   <div class='column'>
+  <a href="#" onclick="addall()"  id="AddAll">Adicionar todos</a>
     <h4>Lista de Exportação</h4>
     <table id="replaceme">
     <!-- <tr id="count">
@@ -61,8 +63,33 @@
     <a href="#" style="display:none;" id="down">Download</a>
     </table>
     <br>
-    
     <script>
+    
+    function addall(){
+      var linha={};
+      var t = document.getElementById("sourcetable");
+      d = t.getElementsByTagName("tr");
+     var cabeca=["numero_registo","Data_registo","Nome_Alojamento","Imovel_Posterior_1951","Data_Abertura_Publico","Modalidade","numero_camas","Numero_Utentes","numero_quartos","numero_beliches","Endereco","codigo_postal","Localidade","Freguesia","Concelho","Distrito","NUTT_II","Titular_da_Exploracao","Titular_Qualidade","Contribuinte","Tipo_Titular","Pais_Titular","Telefone","Fax","Telemovel","Email"]; 
+      for(var i=1;i!=d.length;i++){
+        linha={};
+          var temp=d[i].innerText.split("\t");
+        for(var k=0;k!=26;k++){
+     linha[cabeca[k]]=temp[k];
+    }
+    arr.push(linha)
+    var table = document.getElementById("replaceme");
+    var row   = table.insertRow(-1);
+    var cell1 = row.insertCell(-1);
+    cell1.innerHTML = '<table id="a"><tr><td onclick="tdclick(event,$(this))" class="wtf"><a href="#" title="Clique aqui para remover esta entrada">'+linha['numero_registo']+'</a></td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Endereco']+'</td></tr></table><br>';
+       var a= document.getElementById('down')
+       a.style.display="block";
+
+    
+      }
+    
+    }
+
+ 
     function myFunction() {
   var x = document.getElementById("mySelect").selectedIndex;
   var input, filter, table, tr, td, i;
@@ -81,10 +108,7 @@
     }       
   }
 }
-    // if( $('#replaceme td').length == 0) {
-    //   document.getElementById("replaceme").innerHTML = "Não tem nada dentro da sua lista de exportação!"
-    // }
-    // else if(){
+
 
       function tdclick(e,thistr){
        
@@ -110,17 +134,11 @@ function trclick(row){
   row.parent().parent().parent().parent().remove();
 }
   
-
     var row_id;
     var linha;
     var arr=[];
     $('#sourcetable').on('click', "tr", function(e){
     row_id = $("td:first a.ajaxCall", this).attr("rel");
-
-
-
-
-
     var table = document.getElementById("replaceme");
     var row   = table.insertRow(-1);
     var cell1 = row.insertCell(-1);
