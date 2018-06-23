@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Turismo</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../style.css">
+<script type="text/javascript" src="./includes/jszip.js"></script>
+<script type="text/javascript" src="./includes/FileSaver.js"></script>
+<script type="text/javascript" src="./includes/myexcel.js"></script>
+<title>Turismo</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 
   <style>
   .loader {
@@ -130,31 +138,17 @@
       .layer2_class { position: absolute; z-index: 2; top: 10px; left: 10px; visibility: hidden }
     </style>
 
+
+
 </head>
+<body>
 
-<script>
-      function downLoad(){
-        if (document.all){
-            document.all["layer1"].style.visibility="hidden";
-            document.all["layer2"].style.visibility="visible";
-        } else if (document.getElementById){
-            node = document.getElementById("layer1").style.visibility='hidden';
-            node = document.getElementById("layer2").style.visibility='visible';
-        }
-      }
-    </script>
-<body onload="downLoad()">
-
-<div id="layer1" class="layer1_class">
-      <table width="100%">
-        <tr>
-          <td  class="loader"><strong><em><img style="margin-left: auto;margin-right: auto;display: block;" src="loading3.gif"> <p style="color:white"> Espere , a carregar a conversao </p> </em></strong></td>
-        </tr>
-      </table>
-    </div>
-<!-- loading end -->
-
-
+<style>
+.direitinho {
+ display: flex;
+ flex-wrap: wrap;
+}
+</style>
 <div class="topnav">
   <a class="active" href="#home">SiteDeBorla</a>
   <a href="/hoteis">Hoteis</a>
@@ -187,7 +181,7 @@
     </div>
     <br>
   <div style='overflow-x:scroll; overflow-y:scroll; height:450px;'>
-  <table class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
+  <table id='sourcetable' class='table table-bordered table-striped' style='border:1px solid #2196F3;'>
     <thead>
       <tr>
       <th class="thcss">Numero de Registo</th>
@@ -218,40 +212,8 @@
 
 </div>
 
-<div class="col-sm-4" >
-<h2>Lista de Exportacao</h2>
-<input class="form-control" id="myInputlista" type="text" style="width: 50%;" placeholder="Search..">
-  <br>
-  <div style="overflow-x:scroll; overflow-y:scroll; height:450px;">
-  <table class="table table-bordered table-striped">
-    <thead >
-      <tr>
-      <th style="background-color: #2196F3;color:white;text-align:center;" >Lista</th>
-      </tr>
-    </thead>
-    </tbody>
-  </table>
-  </div> 
-</div>
-
-</div>
-
-
-
-</body>
-
-<!-- <script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script> -->
-
 <script>
+
 function myFunction() {
   var x = document.getElementById("mySelect").selectedIndex;
   var input, filter, table, tr, td, i;
@@ -271,19 +233,153 @@ function myFunction() {
   }
 }
 
-
-
-
-$(document).ready(function(){
-  $("#myInputlista").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTablelista tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
 </script>
 
+  <div class='column'>
+    <h4>Lista de Exportação</h4>
+    <a href="#" id="down">Download</a>
+    <table id="replaceme">
+    <!-- <tr id="count">
+    <td id="demo">
+
+    </td>
+    </tr> -->
+    
+    </table>
+    <br>
+    
+    <script>
+    // if( $('#replaceme td').length == 0) {
+    //   document.getElementById("replaceme").innerHTML = "Não tem nada dentro da sua lista de exportação!"
+    // }
+    // else if(){
+
+      function tdclick(e,thistr){
+       
+        if(!(e.target.innerText=="undefined")){
+        var a=e.target.innerText;
+        for(var i=0;i!=$('#replaceme table').length;i++){
+          if(a==arr[i]['numero_registo']){
+          arr.splice(i,1)
+          break;
+          }
+        }
+        trclick(thistr);
+        }
+        else
+        return "";
+      }
+
+function trclick(row){
+  row.parent().parent().parent().parent().remove();
+}
+  
+
+    var row_id;
+    var linha;
+    var arr=[];
+    $('#sourcetable').on('click', "tr", function(e){
+    row_id = $("td:first a.ajaxCall", this).attr("rel");
 
 
+
+
+
+    var table = document.getElementById("replaceme");
+    var row   = table.insertRow(-1);
+    var cell1 = row.insertCell(-1);
+  //  window.console&&console.log($('#replaceme table').length)
+    linha = JSON.parse(row_id);
+//window.console&&console.log(linha);
+   
+      arr.push(linha);
+    cell1.innerHTML = '<table id="a"><tr><td onclick="tdclick(event,$(this))" class="wtf"><a href="#" title="Clique aqui para remover esta entrada">'+linha['numero_registo']+'</a></td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></table><br>';
+   // window.console&&console.log(linha);
+        // var csv = linha['numero_registo'] + "\t" + linha['Data_registo'];
+        // var data = new Blob([csv]);
+        // var a = document.getElementById('aa');
+        // a.href = URL.createObjectURL(data);
+    //  var cont = $('#replaceme tr td').length-1;
+    //  document.getElementById("demo").innerHTML = "Tem " + cont + " Items na sua lista!";
+     
+    });
+    $('#down').click({arr:arr},getarray); //criamos um evento para quando clicarmos no botao download,queira trazer o array como parametro
+    function getarray(event){
+       var arr= event.data.arr; //fazemos a declaracao da variavel local
+
+      function randomDate(start, end) {
+			var d= new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+			return d;
+    }
+    
+		  var excel = $JExcel.new("Calibri light 10 #333333");			// Default font
+			
+			excel.set( {sheet:0,value:"Alojamentos" } );
+			
+			var evenRow=excel.addStyle ( { 																	// Style for even ROWS
+				border: "none,none,none,thin #333333"});													// Borders are LEFT,RIGHT,TOP,BOTTOM. Check $JExcel.borderStyles for a list of valid border styles
+			var oddRow=excel.addStyle ( { 																	// Style for odd ROWS
+				fill: "#ECECEC" , 																			// Background color, plain #RRGGBB, there is a helper $JExcel.rgbToHex(r,g,b)
+				border: "none,none,none,thin #333333"}); 
+			
+ 
+			var headers=["Número Registo", "Data Registo", "Nome do Alojamento", "Imovél Posterior 1951", "Data Abertura Público", "Modalidade", "Número de camas", "Número de Utentes", "Número de Quartos", "Número de Beliches", "Endereço", "Código de Postal", "Localidade", "Freguesia", "Concelho", "Distrito", "NUTT_II"];							// This array holds the HEADERS text
+			var formatHeader=excel.addStyle ( { 															// Format for headers
+					border: "none,none,none,thin #333333", 													// 		Border for header
+					font: "Calibri 12 #0000AA B"}); 														// 		Font for headers
+			for (var i=0;i<headers.length;i++){																// Loop all the haders
+				excel.set(0,i,0,headers[i],formatHeader);													// Set CELL with header text, using header format
+				excel.set(0,i,undefined,"auto");															// Set COLUMN width to auto (according to the standard this is only valid for numeric columns)
+			}
+			
+			
+			// Now let's write some data
+			var initDate = new Date(2000, 0, 1);
+			var endDate = new Date(2016, 0, 1);
+			var dateStyle = excel.addStyle ( { 																// Format for date cells
+					align: "R",																				// 		aligned to the RIGHT
+					format: "yyyy.mm.dd hh:mm:ss", 															// 		using DATE mask, Check $JExcel.formats for built-in formats or provide your own 
+					font: "#00AA00"}); 																		// 		in color green
+      
+        
+        $.each(arr, function (index, value) {
+				//para cada item no array
+          excel.set(0,0,index+1,arr[index]['numero_registo']);	
+          excel.set(0,1,index+1,arr[index]['Data_registo']);
+          excel.set(0,2,index+1,arr[index]['Nome_Alojamento']);
+          excel.set(0,3,index+1,arr[index]['Imovel_Posterior_1951']);															
+          var d=randomDate(initDate,endDate);															
+          excel.set(0,1,d.toLocaleString());														
+          excel.set(0,2,$JExcel.toExcelLocalTime(d));											
+          excel.set(0,3,$JExcel.toExcelLocalTime(d),dateStyle);										
+          excel.set(0,4,"Some other text");			
+         								
+        })	
+					
+        excel.generate("ALOJAMENTOS.xlsx");
+      
+			
+		};
+  
+
+  // } 
+
+  
+
+
+</script>
+  </div>
+</div>
+  
+
+<style>
+.wtf{
+  border-style:none;
+}
+
+#a{
+  border-style:none;
+}
+</style>
+</body>
 </html>
