@@ -57,8 +57,9 @@
     // else if(){
 
       function tdclick(e,thistr){
-        if(!(e.explicitOriginalTarget.data=="undefined")){
-        var a=e.explicitOriginalTarget.data;
+       
+        if(!(e.target.innerText=="undefined")){
+        var a=e.target.innerText;
         for(var i=0;i!=$('#replaceme table').length;i++){
           if(a==arr[i]['numero_registo']){
           arr.splice(i,1)
