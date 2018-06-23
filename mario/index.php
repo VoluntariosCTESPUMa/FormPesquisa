@@ -55,12 +55,36 @@
     //   document.getElementById("replaceme").innerHTML = "Não tem nada dentro da sua lista de exportação!"
     // }
     // else if(){
+
+      function tdclick(e,thistr){
+        if(!(e.explicitOriginalTarget.data=="undefined")){
+        var a=e.explicitOriginalTarget.data;
+        for(var i=0;i!=$('#replaceme table').length;i++){
+          if(a==arr[i]['numero_registo']){
+          arr.splice(i,1)
+          break;
+          }
+        }
+        trclick(thistr);
+        }
+        else
+        return "";
+      }
+
+function trclick(row){
+  row.parent().remove();
+}
+  
+
     var row_id;
     var linha;
     var arr=[];
     $('#sourcetable').on('click', "tr", function(e){
     row_id = $("td:first a.ajaxCall", this).attr("rel");
-    // window.console&&console.log(JSON.parse(row_id));
+
+
+
+
 
     var table = document.getElementById("replaceme");
     var row   = table.insertRow(-1);
@@ -70,7 +94,7 @@
 //window.console&&console.log(linha);
    
       arr.push(linha);
-    cell1.innerHTML = '<table id="a"><tr><td class="wtf">'+linha['numero_registo']+'</td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></table><br>';
+    cell1.innerHTML = '<table id="a"><tr><td onclick="tdclick(event,$(this))" class="wtf"><a href="#" title="Clique aqui para remover esta entrada">'+linha['numero_registo']+'</a></td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></table><br>';
    // window.console&&console.log(linha);
         // var csv = linha['numero_registo'] + "\t" + linha['Data_registo'];
         // var data = new Blob([csv]);
