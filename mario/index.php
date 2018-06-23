@@ -20,15 +20,27 @@
 
 <div class="row" style="margin:2rem;">
 <div class="search-container" style="margin-left:0.5rem;">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Pesquisar..." name="search">
-      <select placeholder="Escolha um filtro...">
-        <option disabled selected style="display:none;">Escolha um filtro...</option>
-        <option><?php ?></option>
-      </select>
-      <button type="submit">Pesquisar <i class="fa fa-search"></i></button>
-    </form>
-  </div>
+<div class="direitinho">
+  <input onkeyup="myFunction()" class="form-control" id='myInput' type='text' style='width: 50%;' placeholder='Search..'>
+  <select class="form-control" style='width: 30%; margin-left: 10px;' id="mySelect">
+        <option value="0">Numero de Registo</option>
+        <option value="1">Data do Registo</option>
+        <option value="2">Nome do Alojamento</option>
+        <option value="3">Imovél Posterior 1951</option>
+        <option value="4">Data Abertura Público</option>
+        <option value="5"> Modalidade</option>
+        <option value="6">Número de camas</option>
+        <option value="7">Número de Utentes</option>
+        <option value="8"> Número de Quartos </option>
+        <option value="9">Número de Beliches</option>
+        <option value="10">Localização(Endereço) </option>
+        <option value="11">Localização(Código de Postal)</option>
+        <option value="12">Localidade</option>
+        <option value="13">Freguesia</option>
+        <option value="14">Concelho</option>
+        <option value="15">Distrito </option>
+    </select>
+    </div></div>
   <div class="column" >
   <h4>Resultados</h4>
   <div style="overflow-x:scroll; overflow-y:scroll; height:450px;">
@@ -46,11 +58,29 @@
 
     </td>
     </tr> -->
-    <a href="#" id="down">Download</a>
+    <a href="#" style="display:none;" id="down">Download</a>
     </table>
     <br>
     
     <script>
+    function myFunction() {
+  var x = document.getElementById("mySelect").selectedIndex;
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("sourcetable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[x];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
     // if( $('#replaceme td').length == 0) {
     //   document.getElementById("replaceme").innerHTML = "Não tem nada dentro da sua lista de exportação!"
     // }
@@ -67,7 +97,11 @@
           }
         }
         trclick(thistr);
+        if(arr.length==0){
+       var a= document.getElementById('down')
+       a.style.display="none";
         }
+      }
         else
         return "";
       }
@@ -103,7 +137,8 @@ function trclick(row){
         // a.href = URL.createObjectURL(data);
     //  var cont = $('#replaceme tr td').length-1;
     //  document.getElementById("demo").innerHTML = "Tem " + cont + " Items na sua lista!";
-     
+    var a= document.getElementById('down')
+       a.style.display="block";
     });
     $('#down').click({arr:arr},getarray); //criamos um evento para quando clicarmos no botao download,queira trazer o array como parametro
     function getarray(event){
@@ -169,7 +204,7 @@ function trclick(row){
 </script>
   </div>
 </div>
-  
+   
 
 <style>
 .wtf{
