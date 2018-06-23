@@ -14,7 +14,7 @@
 <body>
 
 <div class="topnav">
-  <a class="active" href="#home">SiteDeBorla</a>
+  <a class="active" href="#home">Turismo Madeira</a>
   <a href="/hoteis">Hoteis</a>
   <a href="/alojamentos">Alojamentos</a>
 </div>
@@ -51,6 +51,7 @@
 </table>
 </div>
   </div>
+  
 
   
   <div class='column'>
@@ -68,7 +69,7 @@
     </table>
     <br>
 
-    <button class="collapsible">turismo</button>
+    <button class="collapsible">Turismo da Madeira</button>
 <div class="content">
 <br>
   <p style="text-align:center">A pedido do turismo da madeira , foi desenvolvida a seguinte ferramenta pelos alunos da UMa </p>
@@ -107,16 +108,15 @@
     padding: 18px;
     width: 100%;
     border: none;
-    height:100px;
-    text-align: center;
+    text-align: left;
     outline: none;
     font-size: 15px;
     background-color: #333;  
   position: fixed;
   bottom: 0;
   left:0;
-  height:60px;
-  width: 100%;
+  height:70px;
+
 }
 
 .active, .collapsible:hover {
@@ -131,15 +131,15 @@
     color:white;
   position: fixed;
   bottom: 0;
-  left:0;
-  height:60px;
-  width: 100%;
+  right:0;
+  height:70px;
+  width: 50%;
 }
 
-</style>
-    
-    <script>
-    var coll = document.getElementsByClassName("collapsible");
+</style>    
+<script>
+
+var coll = document.getElementsByClassName("collapsible");
 var i;
 
 for (i = 0; i < coll.length; i++) {
@@ -153,9 +153,10 @@ for (i = 0; i < coll.length; i++) {
         }
     });
 }
+ 
 
 
-    function myFunction() {
+function myFunction() {
   var x = document.getElementById("mySelect").selectedIndex;
   var input, filter, table, tr, td, i;
   input = document.getElementById("myInput");
