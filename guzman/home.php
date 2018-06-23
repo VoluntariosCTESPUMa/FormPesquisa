@@ -10,8 +10,8 @@
 <body>
 <div class="topnav">
   <a class="active" href="#home">Turismo Madeira</a>
-  <a href="/hoteis">Hoteis</a>
-  <a href="./index.php">Alojamentos</a>
+  <!-- <a href="/hoteis">Hoteis</a> -->
+  <!-- <a href="./index.php">Alojamentos</a> -->
 </div>
 
 <div class="containerhome">
@@ -22,9 +22,8 @@
     </h1>
 </div>
 
-<div>
 
-<div class="carousel">
+<!-- <div class="carousel">
     <div class="carousel-inner">
         <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
         <div class="carousel-item">
@@ -56,20 +55,20 @@
             </li>
         </ol>
     </div>
-</div>
+</div> -->
 <div class="containerhome2" >
 <div class="column2" style="border-right:2px solid black">
     <p>
         Aqui podera ir para a secção dos hoteis.
     </p>
-   <a  href="" class="decora" >Click aqui</a> 
+   <a  href="/hoteis" class="decora" >Click aqui</a> 
 </div>
 
 <div class="column2">
 <p>
         Aqui podera ir para a secção dos alojamentos.
     </p>
-    <a href="" class="decora" >Click aqui</a>
+    <a href="./index.php" class="decora" >Click aqui</a>
 </div>
 
 </div>
