@@ -63,9 +63,9 @@
     </p>
     <br>
     <br>
-    <a  href="./hotel.php" class="decora" ></a> 
+    <a  href="./hotel.php" class="decora" >
     <button class="btn success" >Clique aqui</button>
-   
+    </a> 
 </div>
 
 <div class="column2">
