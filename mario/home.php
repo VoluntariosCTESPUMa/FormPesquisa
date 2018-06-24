@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<title>Home Page</title>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../style.css">
-    <title>Document</title>
 </head>
 <body>
 <div class="topnav">
@@ -63,9 +63,8 @@
     </p>
     <br>
     <br>
-    <button class="btn success" >
-        <a  href="/hoteis" class="decora" >Click aqui</a> 
-    </button>
+    <a  href="./hotel.php" class="decora" ></a> 
+    <button class="btn success" >Clique aqui</button>
    
 </div>
 
@@ -76,9 +75,7 @@
     <br>
     <br>
     <a href="./alojamento.php" class="decora" >
-    <button class="btn success">Click aqui
-        
-    </button>
+    <button class="btn success">Clique aqui</button>
     </a>
 </div>
 

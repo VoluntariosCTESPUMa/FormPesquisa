@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<title>Alojamento</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../style.css">
@@ -59,7 +59,7 @@
   <div class='column' >
   <h4 style="text-align:center;background-color:#2196F3;color:white;height:60px;" ><br>Lista de Exportação <i class="fa fa-bars"></i></h4>
   <a href="#" style="display:none;" id="rem"  onclick="removeall()">Remover todos <i class="glyphicon glyphicon-file"></i> </a>
-  <a href="#" style="display:none;" id="down">Importar lista <i class="glyphicon glyphicon-file"></i> </a>
+  <a href="#" style="display:none;" id="down">Exportar lista <i class="glyphicon glyphicon-file"></i> </a>
   <br>
   <div class="column" style="overflow-y:scroll; width:100%;" >
 
@@ -177,16 +177,17 @@ function addall(){
     var table = document.getElementById("replaceme");//inserimos esta nova entrada na lista do outro lado
     var row   = table.insertRow(-1);
     var cell1 = row.insertCell(-1);
-    cell1.innerHTML = '<table id="a"><tr><td onclick="tdclick(event,$(this))"><a style="color:red;" href="#" title="Clique aqui para remover esta entrada">'+linha['numero_registo']+'</a></td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></table><br>';
-       var a= document.getElementById('down') //e mostramos os botoes de download e remover
+    cell1.innerHTML = '<table id="a"><tr><td onclick="tdclick(event,$(this))"><a style="color:red;" href="#" title="Clique aqui para remover esta entrada">'+linha['numero_registo']+'</a></td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td><td>'+linha['Data_Abertura_Publico']+'</td><td>'+linha['Modalidade']+'</td><td>'+linha['numero_camas']+'</td><td>'+linha['Numero_Utentes']+'</td><td>'+linha['numero_quartos']+'</td><td>'+linha['numero_beliches']+'</td><td>'+linha['Endereco']+'</td><td>'+linha['codigo_postal']+'</td><td>'+linha['Localidade']+'</td><td>'+linha['Freguesia']+'</td><td>'+linha['Concelho']+'</td><td>'+linha['Distrito']+'</td><td>'+linha['NUTT_II']+'</td><td>'+linha['Titular_da_Exploracao']+'</td><td>'+linha['Titular_Qualidade']+'</td><td>'+linha['Contribuinte']+'</td><td>'+linha['Tipo_Titular']+'</td><td>'+linha['Pais_Titular']+'</td><td>'+linha['Telefone']+'</td><td>'+linha['Fax']+'</td><td>'+linha['Telemovel']+'</td><td>'+linha['Email']+'</td></tr></table><br>';    	         
+      
+    
+      }
+      var a= document.getElementById('down') //e mostramos os botoes de download e remover
        a.style.display="block";
        a= document.getElementById('rem')
        a.style.display="block";
 
-    
-      }
-    
     }
+
 
 var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -274,7 +275,7 @@ function trclick(row){
 window.console&&console.log(linha);
       
       arr.push(linha);
-    cell1.innerHTML = '<table id="a"><tr><td onclick="tdclick(event,$(this))"><a style="color:red;" href="#" title="Clique aqui para remover esta entrada">'+linha['numero_registo']+'</a></td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td></tr></table><br>';
+    cell1.innerHTML = '<table id="a"><tr><td onclick="tdclick(event,$(this))"><a style="color:red;" href="#" title="Clique aqui para remover esta entrada">'+linha['numero_registo']+'</a></td><td>'+linha['Data_registo']+'</td><td>'+linha['Nome_Alojamento']+'</td><td>'+linha['Imovel_Posterior_1951']+'</td><td>'+linha['Data_Abertura_Publico']+'</td><td>'+linha['Modalidade']+'</td><td>'+linha['numero_camas']+'</td><td>'+linha['Numero_Utentes']+'</td><td>'+linha['numero_quartos']+'</td><td>'+linha['numero_beliches']+'</td><td>'+linha['Endereco']+'</td><td>'+linha['codigo_postal']+'</td><td>'+linha['Localidade']+'</td><td>'+linha['Freguesia']+'</td><td>'+linha['Concelho']+'</td><td>'+linha['Distrito']+'</td><td>'+linha['NUTT_II']+'</td><td>'+linha['Titular_da_Exploracao']+'</td><td>'+linha['Titular_Qualidade']+'</td><td>'+linha['Contribuinte']+'</td><td>'+linha['Tipo_Titular']+'</td><td>'+linha['Pais_Titular']+'</td><td>'+linha['Telefone']+'</td><td>'+linha['Fax']+'</td><td>'+linha['Telemovel']+'</td><td>'+linha['Email']+'</td></tr></table><br>';    	         
    // window.console&&console.log(linha);
         // var csv = linha['numero_registo'] + "\t" + linha['Data_registo'];
         // var data = new Blob([csv]);

@@ -38,10 +38,11 @@ function alerta($num){
    echo "<script type='text/javascript'>alert('$num');</script>";
 }
 if ($result->num_rows > 0) {
-    echo "<table id='sourcetable'><thead><tr><th>IDHotel</th><th>Nome</th><th>Morada</th><th>Telemovel</th></tr></thead>";
+    echo "<table id='sourcetable'><thead><tr><th>IDHotel(BD)</th><th>Categoria</th><th>Classificacao</th><th>Unidade Hoteleira</th><th>Diretor</th><th>Email Diretor</th><th>Diretor Comercial</th><th>Email Diretor Comercial</th><th>Email Geral</th><th>Telefone</th><th>Grupo Hoteleiro</th></thead>";
     
     while($row = $result->fetch_assoc()) { 
-        echo "<tbody><tr><td><a class='ajaxCall' href='#' rel='".json_encode($row, JSON_UNESCAPED_UNICODE)."'>".$row['idhotel']."</a></td><td>".$row["nome"]."</td><td>".$row["morada"]."</td><td>".$row["telemovel"]."</td></tr></tbody>";
+        
+        echo "<tbody><tr><td><a class='ajaxCall' href='#' rel='".json_encode($row, JSON_UNESCAPED_UNICODE)."'>".$row['IdHotel']."</a></td><td>".$row["categoria"]."</td><td>".$row["classificacao"]."</td><td>".$row["unidade_hoteleira"]."</td><td>".$row["diretor"]."</td><td>".$row["email_diretor"]."</td><td>".$row["diretor_comercial"]."</td><td>".$row["email_diretor_comercial"]."</td><td>".$row["email_geral"]."</td><td>".$row["telefone"]."</td><td>".$row["grupo_hoteleiro"]."</td></tr></tbody>";
     }
     echo "</table>";
 } 

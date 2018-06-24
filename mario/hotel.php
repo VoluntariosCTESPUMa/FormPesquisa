@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<title>Hotel</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../style.css">
@@ -15,8 +15,8 @@
 
 <div class="topnav">
   <a href="./home.php">Turismo Madeira</a>
-  <a href="/hoteis">Hoteis</a>
-  <a class="active" href="./index.php">Alojamentos</a>
+  <a class="active" href="./hotel.php">Hoteis</a>
+  <a  href="./alojamento.php">Alojamentos</a>
 </div>
 
 <div class="row" style="margin:2rem;">
@@ -24,15 +24,16 @@
 <div class="direitinho">
   <input onkeyup="myFunction()" class="form-control" id='myInput' type='text' style='width: 28%;height:35px;' placeholder='Search..'>
   <select class="form-control" style='width: 20%; margin-left: 10px; height:35px;' id="mySelect">
-        <option value="0">Categoria</option>
-        <option value="1">Classificação</option>
-        <option value="2">Unidade Hoteleira</option>
-        <option value="3">Diretor</option>
-        <option value="4">Diretor Comercial</option>
-        <option value="5">E-mail Diretor Comercial</option>
-        <option value="6">E-mail Geral</option>
-        <option value="7">Telefone</option>
-        <option value="8">Grupo Hoteleiro</option>
+        <option value="0">IdHotel(BD)</option>
+        <option value="1">Categoria</option>
+        <option value="2">Classificação</option>
+        <option value="3">Unidade Hoteleira</option>
+        <option value="4">Diretor</option>
+        <option value="5">Diretor Comercial</option>
+        <option value="6">E-mail Diretor Comercial</option>
+        <option value="7">E-mail Geral</option>
+        <option value="8">Telefone</option>
+        <option value="9">Grupo Hoteleiro</option>
     </select>
     </div></div>
   <div class="column" >
@@ -52,7 +53,7 @@
   <div class='column' >
   <h4 style="text-align:center;background-color:#2196F3;color:white;height:60px;" ><br>Lista de Exportação <i class="fa fa-bars"></i></h4>
   <a href="#" style="display:none;" id="rem"  onclick="removeall()">Remover todos <i class="glyphicon glyphicon-file"></i> </a>
-  <a href="#" style="display:none;" id="down">Importar lista <i class="glyphicon glyphicon-file"></i> </a>
+  <a href="#" style="display:none;" id="down">Exportar lista <i class="glyphicon glyphicon-file"></i> </a>
   <div class="column" style="overflow-y:scroll; width:100%;" >
 
   
@@ -158,7 +159,8 @@ function addall(){
       var linha={}; //criamos uma variavel local
       var t = document.getElementById("sourcetable");//pegamos no elemento da primeira tabela
       d = t.getElementsByTagName("tr");//pegamos na TR
-     var cabeca=["categoria","classificacao","uni_hoteleira","diretor","email_dir","dir_comercial","email_dir_com","email_geral","telefone","grupo_hoteleiro"];  //defenimos as propriedades do objeto
+      
+     var cabeca=["IdHotel","categoria","classificacao","unidade_hoteleira","diretor","email_diretor","diretor_comercial","email_diretor_comercial","email_geral","telefone","grupo_hoteleiro"];  //defenimos as propriedades do objeto
       for(var i=1;i!=d.length;i++){
         linha={};//esvaziamos o objeto
           var temp=d[i].innerText.split("\t"); //agarramos nas trs das linhas seguintes
@@ -169,15 +171,12 @@ function addall(){
     var table = document.getElementById("replaceme");//inserimos esta nova entrada na lista do outro lado
     var row   = table.insertRow(-1);
     var cell1 = row.insertCell(-1);
-    cell1.innerHTML = '<table id="a"><tr><td onclick="tdclick(event,$(this))"><a style="color:red;" href="#" title="Clique aqui para remover esta entrada">'+linha['categora']+'</a></td><td>'+linha['classificacao']+'</td><td>'+linha['uni_hoteleira']+'</td><td>'+linha['diretor']+'</td><td>'+linha['email_dir']+'</td><td>'+linha['dir_comercial']+'</td><td>'+linha['email_dir_com']+'</td><td>'+linha['email_geral']+'</td><td>'+linha['telefone']+'</td><td>'+linha['grupo_hoteleiro']+'</td></tr></table><br>';
-       var a= document.getElementById('down') //e mostramos os botoes de download e remover
+    cell1.innerHTML = '<table id="a"><tr><td onclick="tdclick(event,$(this))"><a style="color:red;" href="#" title="Clique aqui para remover esta entrada">'+linha['IdHotel']+'</a></td><td>'+linha['categoria']+'</td><td>'+linha['classificacao']+'</td><td>'+linha['unidade_hoteleira']+'</td><td>'+linha['diretor']+'</td><td>'+linha['email_diretor']+'</td><td>'+linha['diretor_comercial']+'</td><td>'+linha['email_diretor_comercial']+'</td><td>'+linha['email_geral']+'</td><td>'+linha['telefone']+'</td><td>'+linha['grupo_hoteleiro']+'</td></tr></table><br>';
+      }
+      var a= document.getElementById('down') //e mostramos os botoes de download e remover
        a.style.display="block";
        a= document.getElementById('rem')
        a.style.display="block";
-
-    
-      }
-    
     }
 
 var coll = document.getElementsByClassName("collapsible");
@@ -225,7 +224,7 @@ function myFunction() {
         if(!(e.target.innerText=="undefined")){
         var a=e.target.innerText;//agarra o id do produto presente na primeira TD
         for(var i=0;i!=$('#replaceme table').length;i++){
-          if(a==arr[i]['idhotel']){
+          if(a==arr[i]['IdHotel']){
           arr.splice(i,1) //quando encontra no array,dá splice
           break;//saimos do for
           }
@@ -266,7 +265,8 @@ function trclick(row){
 window.console&&console.log(linha);
       
       arr.push(linha);
-    cell1.innerHTML = '<table id="a"><tr><td onclick="tdclick(event,$(this))"><a style="color:red;" href="#" title="Clique aqui para remover esta entrada">'+linha['categoria']+'</a></td><td>'+linha['classificacao']+'</td><td>'+linha['uni_hoteleira']+'</td><td>'+linha['diretor']+'</td></tr></table><br>';
+    cell1.innerHTML = '<table id="a"><tr><td onclick="tdclick(event,$(this))"><a style="color:red;" href="#" title="Clique aqui para remover esta entrada">'+linha['IdHotel']+'</a></td><td>'+linha['categoria']+'</td><td>'+linha['classificacao']+'</td><td>'+linha['unidade_hoteleira']+'</td><td>'+linha['diretor']+'</td><td>'+linha['email_diretor']+'</td><td>'+linha['diretor_comercial']+'</td><td>'+linha['email_diretor_comercial']+'</td><td>'+linha['email_geral']+'</td><td>'+linha['telefone']+'</td><td>'+linha['grupo_hoteleiro']+'</td></tr></table><br>';
+    
    // window.console&&console.log(linha);
         // var csv = linha['numero_registo'] + "\t" + linha['Data_registo'];
         // var data = new Blob([csv]);
@@ -300,7 +300,7 @@ window.console&&console.log(linha);
 				border: "none,none,none,thin #333333"}); 
 			
  
-			var headers=["IDHotel", "Nome", "Morada", "Telemóvel"];							// This array holds the HEADERS text
+			var headers=["Categoria","Classificacao","Unidade Hoteleira","Diretor","Email Diretor","Diretor Comercial","Email Diretor Comercial","Email Geral","Telefone","Grupo Hoteleiro"];  //defenimos as propriedades do objeto							// This array holds the HEADERS text
       
       
       var formatHeader=excel.addStyle ( { 															// Format for headers
@@ -323,11 +323,16 @@ window.console&&console.log(linha);
         
         $.each(arr, function (index, value) {
 				//para cada item no array
-        
-          excel.set(0,0,index+1,arr[index]['idhotel']);	
-          excel.set(0,1,index+1,arr[index]['nome']);
-          excel.set(0,2,index+1,arr[index]['morada']);
-          excel.set(0,3,index+1,arr[index]['telemovel']);															
+          excel.set(0,0,index+1,arr[index]['categoria']);	
+          excel.set(0,1,index+1,arr[index]['classificacao']);
+          excel.set(0,2,index+1,arr[index]['unidade_hoteleira']);
+          excel.set(0,3,index+1,arr[index]['diretor']);		
+          excel.set(0,4,index+1,arr[index]['email_diretor']);	
+          excel.set(0,5,index+1,arr[index]['diretor_comercial']);	
+          excel.set(0,6,index+1,arr[index]['email_diretor_comercial']);	
+          excel.set(0,7,index+1,arr[index]['email_geral']);	
+          excel.set(0,8,index+1,arr[index]['telefone']);	
+          excel.set(0,9,index+1,arr[index]['grupo_hoteleiro']);														
 
           var d=randomDate(initDate,endDate);															
           excel.set(0,1,d.toLocaleString());														
@@ -337,7 +342,7 @@ window.console&&console.log(linha);
          								
         })	
 					
-        excel.generate("HOTEIS.xlsx");
+        excel.generate("HOTEL.xlsx");
       
 			
 		};
