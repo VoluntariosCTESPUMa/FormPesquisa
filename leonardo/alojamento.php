@@ -29,23 +29,33 @@
         <option value="2">Nome do Alojamento</option>
         <option value="3">Imovél Posterior 1951</option>
         <option value="4">Data Abertura Público</option>
-        <option value="5"> Modalidade</option>
+        <option value="5">Modalidade</option>
         <option value="6">Número de camas</option>
         <option value="7">Número de Utentes</option>
-        <option value="8"> Número de Quartos </option>
+        <option value="8">Número de Quartos </option>
         <option value="9">Número de Beliches</option>
         <option value="10">Localização(Endereço) </option>
         <option value="11">Localização(Código de Postal)</option>
-        <option value="12">Localidade</option>
-        <option value="13">Freguesia</option>
-        <option value="14">Concelho</option>
-        <option value="15">Distrito </option>
+        <option value="12">Localização(Localidade)</option>
+        <option value="13">Localização(Freguesia)</option>
+        <option value="14">Localização(Concelho)</option>
+        <option value="15">Localização(Distrito)</option>
+        <option value="16">NUTT_II</option>
+        <option value="17">Titular da Exploração</option>
+        <option value="18">Titular Qualidade</option>
+        <option value="19">Contribuinte</option>
+        <option value="20">Tipo de Titular</option>
+        <option value="21">Pais Titular</option>
+        <option value="22">Telefone</option>
+        <option value="23">Fax</option>
+        <option value="24">Telemovel</option>
+        <option value="25">Email</option>
     </select>
     </div></div>
   <div class="column" >
 
   <h4 style="text-align:center;background-color:#2196F3;color:white;height:60px;" ><br>Resultados <i class="fa fa-search"></i></h4>
-  <a href="#"  onclick="addall()">Adicionar todos <i class="glyphicon glyphicon-file"></i> </a>
+  <a href="#"  onclick="addall()">Adicionar todos <i class="glyphicon glyphicon-plus"></i> </a>
   <div style="overflow-x:scroll; overflow-y:scroll; height:380px;">
   <table > 
   <meta charset="utf-8"/>
@@ -58,9 +68,11 @@
 
   <div class='column' >
   <h4 style="text-align:center;background-color:#2196F3;color:white;height:60px;" ><br>Lista de Exportação <i class="fa fa-bars"></i></h4>
-  <a href="#" style="display:none;" id="rem"  onclick="removeall()">Remover todos <i class="glyphicon glyphicon-file"></i> </a>
-  <a href="#" style="display:none;" id="down">Exportar lista <i class="glyphicon glyphicon-file"></i> </a>
+  <div class="direitinho">
+  <a href="#" style="display:none;" id="rem"  onclick="removeall()">Remover todos <i class="fa fa-eraser"></i> </a> 
+  <a href="#" style="display:none; margin-left:1rem;" id="down">  Exportar lista <i class="glyphicon glyphicon-file"></i> </a>
   <br>
+  </div>
   <div class="column" style="overflow-y:scroll; width:100%;" >
 
   
@@ -73,15 +85,14 @@
    
    
     <br>
-    
+
     </table>
     </div>
     <br>
 
     <button class="collapsible">Turismo da Madeira</button>
-<div class="content">
-
-  <p style="text-align:center">A pedido do turismo da madeira , foi desenvolvida a seguinte ferramenta pelos alunos da UMa </p>
+  <div class="content">
+  <p style="text-align:center"><br>A pedido do Turismo da Madeira , foi desenvolvida a seguinte ferramenta de trabalho pelos alunos da UMa </p>
 </div>
 <style>
 
