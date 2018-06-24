@@ -15,7 +15,7 @@
 
 <div class="topnav">
   <a href="./home.php">Turismo Madeira</a>
-  <a href="/hoteis">Hoteis</a>
+  <a href="./hotel.php">Hoteis</a>
   <a class="active" href="./index.php">Alojamentos</a>
 </div>
 

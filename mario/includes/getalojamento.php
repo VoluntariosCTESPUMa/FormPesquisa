@@ -31,7 +31,7 @@ if ($conn->connect_error) {
 } 
 
 
-$sql = "SELECT * FROM alojamento LIMIT 5";
+$sql = "SELECT * FROM alojamento";
 $result = $conn->query($sql);
 
 function alerta($num){
