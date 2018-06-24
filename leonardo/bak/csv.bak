@@ -1,0 +1,39 @@
+
+/**********************WORKING CODE?  */
+
+// $csv = '/var/www/html/labs/import/' . $file_name;
+
+// $query = "LOAD DATA INFILE '$csv' INTO TABLE safety_quiz FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' (first_name, last_name, person_id, quiz_result)";
+// $result = mysql_query($query, $connection) or die(mysql_error());
+ 
+
+
+
+/*********** TRY 1 */
+		//  if($_FILES["file"]["size"] > 0)
+		//  {
+		// 	  $file = fopen($filename, "r");
+		// 	  while (($getData = fgetcsv($file, 0, ",",'"')) !== FALSE)
+	    //      {
+        //     if($checkpoint) { $checkpoint = false; continue; }
+	    //        $sql = "INSERT into alojamento 
+        //            values ('".$getData[0]."','".$getData[1]."','".$getData[2]."','".$getData[3]."','".$getData[4]."','".$getData[5]."','".$getData[6]."','".$getData[7]."','".$getData[8]."','".$getData[9]."','".$getData[10]."','".$getData[11]."','".$getData[12]."','".$getData[13]."','".$getData[14]."','".$getData[15]."','".$getData[16]."','".$getData[17]."','".$getData[18]."','".$getData[19]."','".$getData[20]."','".$getData[21]."','".$getData[22]."','".$getData[23]."','".$getData[24]."','".$getData[25]."')";
+        //            $result = mysqli_query($con, $sql);
+		// 		if(!isset($result))
+		// 		{
+		// 			echo "<script type=\"text/javascript\">
+		// 					alert(\"Invalid File:Please Upload CSV File.\");
+		// 					window.location = \"index.php\"
+		// 				  </script>";		
+		// 		}
+		// 		else {
+		// 			  echo "<script type=\"text/javascript\">
+		// 				alert(\"CSV File has been successfully Imported.\");
+		// 				window.location = \"index.php\"
+		// 			</script>";
+		// 		}
+	    //      }
+			
+	    //      fclose($file);	
+		//  }
+			
