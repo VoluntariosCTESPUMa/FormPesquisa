@@ -52,8 +52,10 @@
 
   <div class='column' >
   <h4 style="text-align:center;background-color:#2196F3;color:white;height:60px;" ><br>Lista de Exportação <i class="fa fa-bars"></i></h4>
+  <div class="direitinho">
   <a href="#" style="display:none;" id="rem"  onclick="removeall()">Remover todos <i class="glyphicon glyphicon-file"></i> </a>
-  <a href="#" style="display:none;" id="down">Exportar lista <i class="glyphicon glyphicon-file"></i> </a>
+  <a href="#" style="display:none; margin-left:1rem;" id="down">Exportar lista <i class="glyphicon glyphicon-file"></i> </a>
+  </div>
   <div class="column" style="overflow-y:scroll; width:100%;" >
 
   
